@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="info">
+
+    <Properties>
+        <Property name="LOG_LEVEL">${sys:x.root.logger}</Property>
+        <Property name="LOG_DIR">${sys:x.log.dir}</Property>
+        <Property name="LOG_FILE">${sys:x.log.file}</Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="Console" target="SYSTEM_ERR">
+            <PatternLayout pattern="%d (%t) [%p - %l] %m%n"/>
+        </Console>
+
+        <RollingFile name="LogFile" fileName="${LOG_DIR}/${LOG_FILE}"
+                     filePattern="${LOG_DIR}/${LOG_FILE}.%d{yyyyMMdd}-%i">
+            <PatternLayout pattern="%d{dd MMM yyyy HH:mm:ss,SSS} %-5p [%t] (%C.%M:%L) %equals{%x}{[]}{} - %m%n"/>
+            <Policies>
+                <!-- Roll when the file reaches 100MB -->
+                <SizeBasedTriggeringPolicy size="200 MB"/>
+            </Policies>
+            <DefaultRolloverStrategy min="1" max="50"/>
+        </RollingFile>
+    </Appenders>
+
+    <Loggers>
+        <Root level="${LOG_LEVEL}">
+            <AppenderRef ref="LogFile"/>
+        </Root>
+    </Loggers>
+</Configuration>
