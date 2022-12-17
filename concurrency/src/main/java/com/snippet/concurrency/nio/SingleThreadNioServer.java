@@ -1,19 +1,20 @@
 package com.snippet.concurrency.nio;
 
-import lombok.extern.slf4j.Slf4j;
-
+import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
+import java.net.SocketAddress;
+import java.net.SocketException;
 import java.nio.ByteBuffer;
-import java.nio.channels.SelectionKey;
-import java.nio.channels.Selector;
-import java.nio.channels.ServerSocketChannel;
-import java.nio.channels.SocketChannel;
+import java.nio.channels.*;
 import java.nio.charset.StandardCharsets;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.Set;
 
-@Slf4j
+/**
+ * 写入断开的socket 会抛出java.io.IOException: Connection reset by peer
+ */
 public class SingleThreadNioServer {
 
     public static void main(String[] args) {
@@ -24,7 +25,7 @@ public class SingleThreadNioServer {
 
             // 命名socket 绑定host:port, 并配置socket为非阻塞
             serverSocket.bind(new InetSocketAddress(9999));
-            serverSocketChannel.configureBlocking(false);
+            serverSocketChannel.configureBlocking(false); // 必须非阻塞，不然不可register
 
             // 打开多路复用选择器 默认epoll (epoll_create、epoll_ctl 向serverSocket绑定accept回调事件)
             Selector selector = Selector.open();
@@ -33,7 +34,10 @@ public class SingleThreadNioServer {
             System.out.println("server start");
             for (; ; ) {
                 // 阻塞调用 epoll_wait
-                selector.select();
+                int event = selector.select();
+                if (event == 0) {
+                    continue;
+                }
                 // select 返回 取出就绪socket
                 Set<SelectionKey> selectionKeys = selector.selectedKeys();
                 Iterator<SelectionKey> iterator = selectionKeys.iterator();
@@ -43,35 +47,64 @@ public class SingleThreadNioServer {
 
                     if (selectionKey.isAcceptable()) {
                         // 客户端连接事件，创建channel并与之连接，向selector对此socket注册读写回调事件；
-                        ServerSocketChannel socketChannel = (ServerSocketChannel) selectionKey.channel();
-                        SocketChannel clientChannel = socketChannel.accept();
-                        System.out.println("client connected");
+                        SocketChannel clientChannel = serverSocketChannel.accept();
+                        SocketAddress clientInfo = clientChannel.getRemoteAddress();
+                        System.out.println("client connected: " + clientInfo.toString());
                         clientChannel.configureBlocking(false);
                         // epoll_ctl
-                        clientChannel.register(selector, SelectionKey.OP_READ | SelectionKey.OP_WRITE);
-                        clientChannel.write(ByteBuffer.wrap("hello\n".getBytes(StandardCharsets.UTF_8)));
+                        clientChannel.register(selector, SelectionKey.OP_READ);
+
+                        try {
+                            clientChannel.write(ByteBuffer.wrap("Join The Conversation".getBytes(StandardCharsets.UTF_8)));
+                        } catch (IOException e) {
+                            System.out.println("write data failed: " + e);
+                        }
 
                     } else if (selectionKey.isReadable()) {
                         // 客户端读事件，从channel中读取消息，向selector对此socket注册读写回调事件；
-                        SocketChannel channel = (SocketChannel) selectionKey.channel();
-                        ByteBuffer buffer = ByteBuffer.allocate(1024);
-                        StringBuilder stringBuilder = new StringBuilder();
-                        while (channel.read(buffer) > 0) {
-                            buffer.flip();
-                            stringBuilder.append(StandardCharsets.UTF_8.decode(buffer));
-                            buffer.clear();
+                        SocketChannel socketChannel = (SocketChannel) selectionKey.channel();
+                        SocketAddress socketAddress = socketChannel.getRemoteAddress();
+                        try {
+                            ByteBuffer buffer = ByteBuffer.allocate(1024);
+                            StringBuilder stringBuilder = new StringBuilder();
+                            while (socketChannel.read(buffer) > 0) { // 已关闭则抛异常
+                                buffer.flip();
+                                stringBuilder.append(StandardCharsets.UTF_8.decode(buffer));
+                                buffer.clear();
+                            }
+                            System.out.println(socketAddress.toString() + ": " + stringBuilder);
+                            castMessage(stringBuilder.toString(), selector.keys(), socketChannel);
+                            // 不需要再次绑定 epoll实例上已经注册
+                            // socketChannel.register(selector, SelectionKey.OP_READ);
+                        } catch (SocketException e) {
+                            // 当客户端未正常关闭，服务端将一直可读，并且读取异常，主动关闭此socket
+                            System.out.println(socketAddress.toString() + " disconnected");
+                            socketChannel.close();
+                        } catch (Exception e) {
+                            System.out.println(e.getMessage());
+                            e.printStackTrace();
                         }
-                        log.info("client message: {}", stringBuilder);
-                        System.out.println(stringBuilder);
-                        // 不需要再次绑定 epoll实例上已经注册
-                        // channel.register(selector, SelectionKey.OP_READ | SelectionKey.OP_WRITE);
-
                     }
                 }
             }
         } catch (Exception e) {
             // selector 关闭 所有注册的资源都一并关闭
             System.out.println("server internal error : " + e);
+            e.printStackTrace();
+        }
+    }
+
+    private static void castMessage(String message, Set<SelectionKey> keys, SocketChannel socketChannel) {
+        for (SelectionKey key : keys) {
+            SelectableChannel channel = key.channel();
+            if (channel instanceof SocketChannel && !Objects.equals(channel, socketChannel)) {
+                SocketChannel otherSocketChannel = (SocketChannel) channel;
+                try {
+                    otherSocketChannel.write(ByteBuffer.wrap(message.getBytes(StandardCharsets.UTF_8)));
+                } catch (IOException e) {
+                    System.out.println("cast message failed.");
+                }
+            }
         }
     }
 
