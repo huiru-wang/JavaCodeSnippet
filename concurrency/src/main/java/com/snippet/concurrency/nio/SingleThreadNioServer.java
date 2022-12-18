@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.SocketAddress;
-import java.net.SocketException;
 import java.nio.ByteBuffer;
 import java.nio.channels.*;
 import java.nio.charset.StandardCharsets;
@@ -72,17 +71,19 @@ public class SingleThreadNioServer {
                                 stringBuilder.append(StandardCharsets.UTF_8.decode(buffer));
                                 buffer.clear();
                             }
+                            if (socketChannel.read(buffer) == -1) {
+                                // 当客户端正常断开socket，读到-1，从epoll实例上取消事件
+                                System.out.println("client disconnected");
+                                selectionKey.cancel(); // epoll_ctl delete
+                            }
                             System.out.println(socketAddress.toString() + ": " + stringBuilder);
                             castMessage(stringBuilder.toString(), selector.keys(), socketChannel);
                             // 不需要再次绑定 epoll实例上已经注册
                             // socketChannel.register(selector, SelectionKey.OP_READ);
-                        } catch (SocketException e) {
-                            // 当客户端未正常关闭，服务端将一直可读，并且读取异常，主动关闭此socket
-                            System.out.println(socketAddress.toString() + " disconnected");
-                            socketChannel.close();
                         } catch (Exception e) {
-                            System.out.println(e.getMessage());
-                            e.printStackTrace();
+                            System.out.println(socketAddress.toString() + e);
+                            // socket异常断开，取消epoll注册的事件，不再监听此socket
+                            selectionKey.cancel();
                         }
                     }
                 }

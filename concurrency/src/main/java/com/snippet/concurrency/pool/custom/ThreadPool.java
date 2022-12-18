@@ -1,7 +1,7 @@
 package com.snippet.concurrency.pool.custom;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
@@ -11,12 +11,12 @@ public class ThreadPool {
 
     private final BlockingQueue<Runnable> queue;
 
-    private final List<Worker> workers;
+    private final Set<Worker> workers;
 
     public ThreadPool(int poolSize, int taskSize) {
         this.maxTask = poolSize;
         this.queue = new ArrayBlockingQueue<>(taskSize);
-        this.workers = new ArrayList<>();
+        this.workers = new HashSet<>();
     }
 
     public void execute(Runnable task) throws InterruptedException {
