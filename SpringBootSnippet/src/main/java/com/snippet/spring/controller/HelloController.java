@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping("/hello")
+@RequestMapping("/api")
 public class HelloController {
 
-    @GetMapping("spring")
-    public ResponseEntity<String> hello() {
-        return new ResponseEntity<>("Hello world", HttpStatus.OK);
+    @GetMapping("hello")
+    public ResponseEntity<String> hi() {
+        return new ResponseEntity<>("hello", HttpStatus.OK);
     }
 }

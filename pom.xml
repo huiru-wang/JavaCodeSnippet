@@ -6,9 +6,10 @@
     <artifactId>JavaCodeSnippet</artifactId>
     <version>1.0-SNAPSHOT</version>
     <modules>
-        <module>concurrency</module>
-        <module>spring</module>
-        <module>designpattern</module>
+        <module>Concurrency</module>
+        <module>SpringBootSnippet</module>
+        <module>DesignPattern</module>
+        <module>DataStructure</module>
     </modules>
     <packaging>pom</packaging>
 
