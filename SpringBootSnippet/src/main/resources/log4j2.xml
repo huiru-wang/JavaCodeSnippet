@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration>
+    <!--========================声明变量========================-->
+    <Properties>
+        <property name="APP_NAME">spring-snippet</property>
+        <!--日志存放路径-->
+        <property name="LOG_PATH">SpringBootSnippet/logs</property>
+        <!--日志备份路径-->
+        <property name="LOG_BACKUP_PATH">${LOG_PATH}/backup</property>
+        <!--日志格式-->
+        <property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS}|%blue{${sys:PID}}|%yellow{%thread}|%cyan{%level}: %msg%n
+        </property>
+    </Properties>
+
+    <!--==============定义日志输出目的地、内容和格式等==============-->
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT">
+            <PatternLayout pattern="${PATTERN}"/>
+        </Console>
+
+        <RollingFile name="RollingFile" fileName="${LOG_PATH}/${APP_NAME}.log"
+                     filePattern="${LOG_BACKUP_PATH}/$${date:yyyy-MM}/${APP_NAME}-%d{yyyy-MM-dd}_%i.log.zip">
+            <!--输出日志的格式, 不设置默认为:%m%n-->
+            <PatternLayout pattern="${PATTERN}"/>
+            <!--只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
+            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            <!--归档设置-->
+            <Policies>
+                <!--按时间间隔归档:
+                    1. interval=时间间隔, 单位由filePattern的%d日期格式指定, 此处配置代表每一天归档一次
+                    2. modulate="true" 是否对interval取模，决定了下一次触发的时间点
+                -->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <!-- 按照日志文件的大小: size表示当前日志文件的最大size，支持单位：KB/MB/GB-->
+                <SizeBasedTriggeringPolicy size="50MB"/>
+            </Policies>
+            <!-- 历史日志配置: 该属性如不设置，则默认为最多同一文件夹下7个文件开始覆盖-->
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+    </Appenders>
+
+    <!--==============指定路径下使用的Appender==============-->
+    <Loggers>
+        <!--        <logger name="com.snippet.spring" level="debug">-->
+        <!--            <AppenderRef ref="Console"/>-->
+        <!--            <AppenderRef ref="RollingFile"/>-->
+        <!--        </logger>-->
+
+        <root level="info">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="RollingFile"/>
+        </root>
+    </Loggers>
+</Configuration>

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.snippet.spring.dao.UserMapper">
+    <resultMap id="BaseResultMap" type="com.snippet.spring.dao.entity.User">
+        <id column="id" jdbcType="VARCHAR" property="id"/>
+        <result column="userName" jdbcType="VARCHAR" property="username"/>
+        <result column="passWord" jdbcType="VARCHAR" property="password"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="updateTime" jdbcType="TIMESTAMP" property="updatetime"/>
+        <result column="createTime" jdbcType="TIMESTAMP" property="createtime"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+        , userName, passWord, phone, updateTime, createTime
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_user
+        where id = #{id,jdbcType=VARCHAR}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+        delete
+        from t_user
+        where id = #{id,jdbcType=VARCHAR}
+    </delete>
+    <insert id="insert" parameterType="com.snippet.spring.dao.entity.User">
+        insert into t_user (id, userName, passWord,
+                            phone, updateTime, createTime)
+        values (#{id,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR},
+                #{phone,jdbcType=VARCHAR}, #{updatetime,jdbcType=TIMESTAMP}, #{createtime,jdbcType=TIMESTAMP})
+    </insert>
+    <insert id="insertSelective" parameterType="com.snippet.spring.dao.entity.User">
+        insert into t_user
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="username != null">
+                userName,
+            </if>
+            <if test="password != null">
+                passWord,
+            </if>
+            <if test="phone != null">
+                phone,
+            </if>
+            <if test="updatetime != null">
+                updateTime,
+            </if>
+            <if test="createtime != null">
+                createTime,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=VARCHAR},
+            </if>
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="updatetime != null">
+                #{updatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createtime != null">
+                #{createtime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.snippet.spring.dao.entity.User">
+        update t_user
+        <set>
+            <if test="username != null">
+                userName = #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null">
+                passWord = #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                phone = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="updatetime != null">
+                updateTime = #{updatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="createtime != null">
+                createTime = #{createtime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.snippet.spring.dao.entity.User">
+        update t_user
+        set userName   = #{username,jdbcType=VARCHAR},
+            passWord   = #{password,jdbcType=VARCHAR},
+            phone      = #{phone,jdbcType=VARCHAR},
+            updateTime = #{updatetime,jdbcType=TIMESTAMP},
+            createTime = #{createtime,jdbcType=TIMESTAMP}
+        where id = #{id,jdbcType=VARCHAR}
+    </update>
+    <select id="selectByUserName" resultType="com.snippet.spring.dao.entity.User">
+        select id, userName, phone, updateTime, createTime
+        from `t_user`
+        where `userName` = #{userName}
+    </select>
+</mapper>
