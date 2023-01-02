@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+/**
+ * 实现一个简易的线程池
+ */
 public class App {
     public static void main(String[] args) throws InterruptedException {
         long start = System.currentTimeMillis();

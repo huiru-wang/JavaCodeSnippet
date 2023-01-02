@@ -9,25 +9,36 @@ import java.util.concurrent.TimeUnit;
  * 1、线程会先占用核心池，满了(最大核心+队列)之后去队列等待；
  * 2、队列满了之后，如果还没有达到最大线程数量，继续创建线程；
  * 3、到最大线程数，启动拒绝策略；
+ * <p>
+ * PoolSize: 1,Queue[]  任务直接交给核心线程
+ * PoolSize: 2,Queue[]  任务直接交给核心线程
+ * PoolSize: 2,Queue[Task_2]    核心线程满，放入队列
+ * PoolSize: 2,Queue[Task_2, Task_3]
+ * PoolSize: 2,Queue[Task_2, Task_3, Task_4]
+ * PoolSize: 2,Queue[Task_2, Task_3, Task_4, Task_5]
+ * PoolSize: 2,Queue[Task_2, Task_3, Task_4, Task_5, Task_6]
+ * PoolSize: 3,Queue[Task_2, Task_3, Task_4, Task_5, Task_6]  队列满，增加线程数，直到满足最大线程
+ * Rejected：Task_8   启动拒绝策略
  */
 public class ThreadPoolWorkFlow {
-    public static void main(String[] args) throws InterruptedException {
-        // 3+5 线程池内最多只存在8个线程，多出则拒绝
-        ThreadPoolExecutor threadPoll = new ThreadPoolExecutor(
-                2, 3, 2000,
-                TimeUnit.MILLISECONDS,
-                new ArrayBlockingQueue<>(5),
-                new MyRejectedHandler());
+    // 2+3 总共5个线程，总计可以同时持有任务3+5=8个
+    private static final ThreadPoolExecutor threadPoll = new ThreadPoolExecutor(
+            2,
+            3,
+            2000,
+            TimeUnit.MILLISECONDS,
+            new ArrayBlockingQueue<>(5),
+            new MyRejectedHandler());
 
+    public static void main(String[] args) throws InterruptedException {
+
+        // 创建 10 个任务添加
         for (int i = 0; i < 10; i++) {
             String name = "Task_" + i;
             Task task = new Task(name);
             try {
                 threadPoll.execute(task);
-                System.out.println(
-                        "PoolSize: " + threadPoll.getPoolSize() +
-                                ",Queue" + threadPoll.getQueue());
-                Thread.sleep(1000);
+                System.out.println("PoolSize: " + threadPoll.getPoolSize() + ",Queue" + threadPoll.getQueue());
             } catch (Exception e) {
                 System.out.println("Refused:" + name);
             }

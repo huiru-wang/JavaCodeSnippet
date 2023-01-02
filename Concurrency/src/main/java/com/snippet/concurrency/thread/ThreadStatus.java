@@ -1,5 +1,8 @@
 package com.snippet.concurrency.thread;
 
+/**
+ * 创建线程只有一种方式：new Thread
+ */
 public class ThreadStatus {
     public static void main(String[] args) throws InterruptedException {
         MyThread myThread = new MyThread();

@@ -16,7 +16,7 @@ public class Worker extends Thread {
     public void run() {
         String workerName = Thread.currentThread().getName() + "-" + id;
         try {
-            while (!Thread.currentThread().isInterrupted()) {
+            while (!Thread.currentThread().isInterrupted()) { // 每次判断是否被中断
                 Runnable task = queue.take();
                 System.out.println(workerName + " is running");
                 task.run();
