@@ -1,0 +1,35 @@
+server:
+  port: 8082
+spring:
+  application:
+    name: order-service
+  # =============datasource=============
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: will
+    password: will
+    url: jdbc:mysql://172.30.254.165:3306/order-service?useUnicode=true&characterEncoding=utf-8&userSSL=false
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 10
+      pool-name: order-service
+      connection-timeout: 10000
+# =============mybatis=============
+mybatis:
+  mapper-locations: classpath:mappers/*.xml
+# =============logging=============
+logging:
+  level:
+    com.snippet: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
+# =============feign=============
+feign:
+  client:
+    config:
+      loggerLevel: BASIC
+  httpclient:
+    enabled: true
+    max-connections: 100
+    max-connections-per-route: 10

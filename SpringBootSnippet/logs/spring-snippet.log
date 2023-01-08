@@ -1,0 +1,105 @@
+2023-01-02 13:41:44.448|[34m13160[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 13160 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
+2023-01-02 13:41:44.461|[34m13160[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
+2023-01-02 13:41:45.729|[34m13160[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
+2023-01-02 13:41:45.743|[34m13160[m|[33mmain[m|[36mINFO[m: Initializing ProtocolHandler ["http-nio-8080"]
+2023-01-02 13:41:45.743|[34m13160[m|[33mmain[m|[36mINFO[m: Starting service [Tomcat]
+2023-01-02 13:41:45.744|[34m13160[m|[33mmain[m|[36mINFO[m: Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-02 13:41:45.920|[34m13160[m|[33mmain[m|[36mINFO[m: Initializing Spring embedded WebApplicationContext
+2023-01-02 13:41:45.921|[34m13160[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 1401 ms
+2023-01-02 13:41:46.722|[34m13160[m|[33mmain[m|[36mINFO[m: Starting ProtocolHandler ["http-nio-8080"]
+2023-01-02 13:41:46.777|[34m13160[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-02 13:41:46.797|[34m13160[m|[33mmain[m|[36mINFO[m: Started Application in 2.822 seconds (JVM running for 5.042)
+2023-01-02 13:49:34.567|[34m14928[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 14928 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
+2023-01-02 13:49:34.576|[34m14928[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
+2023-01-02 13:49:35.703|[34m14928[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
+2023-01-02 13:49:35.713|[34m14928[m|[33mmain[m|[36mINFO[m: Initializing ProtocolHandler ["http-nio-8080"]
+2023-01-02 13:49:35.713|[34m14928[m|[33mmain[m|[36mINFO[m: Starting service [Tomcat]
+2023-01-02 13:49:35.714|[34m14928[m|[33mmain[m|[36mINFO[m: Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-02 13:49:35.807|[34m14928[m|[33mmain[m|[36mINFO[m: Initializing Spring embedded WebApplicationContext
+2023-01-02 13:49:35.808|[34m14928[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 1175 ms
+2023-01-02 13:49:36.516|[34m14928[m|[33mmain[m|[36mINFO[m: Starting ProtocolHandler ["http-nio-8080"]
+2023-01-02 13:49:36.567|[34m14928[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-02 13:49:36.576|[34m14928[m|[33mmain[m|[36mINFO[m: Started Application in 2.528 seconds (JVM running for 3.951)
+2023-01-02 14:00:03.960|[34m15084[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 15084 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
+2023-01-02 14:00:03.974|[34m15084[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
+2023-01-02 14:00:05.513|[34m15084[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
+2023-01-02 14:00:05.526|[34m15084[m|[33mmain[m|[36mINFO[m: Initializing ProtocolHandler ["http-nio-8080"]
+2023-01-02 14:00:05.526|[34m15084[m|[33mmain[m|[36mINFO[m: Starting service [Tomcat]
+2023-01-02 14:00:05.527|[34m15084[m|[33mmain[m|[36mINFO[m: Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-02 14:00:05.667|[34m15084[m|[33mmain[m|[36mINFO[m: Initializing Spring embedded WebApplicationContext
+2023-01-02 14:00:05.667|[34m15084[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 1621 ms
+2023-01-02 14:00:06.572|[34m15084[m|[33mmain[m|[36mINFO[m: Starting ProtocolHandler ["http-nio-8080"]
+2023-01-02 14:00:06.629|[34m15084[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-02 14:00:06.642|[34m15084[m|[33mmain[m|[36mINFO[m: Started Application in 3.344 seconds (JVM running for 5.713)
+2023-01-02 14:00:39.979|[34m20784[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 20784 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
+2023-01-02 14:00:39.993|[34m20784[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
+2023-01-02 14:00:41.246|[34m20784[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
+2023-01-02 14:00:41.255|[34m20784[m|[33mmain[m|[36mINFO[m: Initializing ProtocolHandler ["http-nio-8080"]
+2023-01-02 14:00:41.256|[34m20784[m|[33mmain[m|[36mINFO[m: Starting service [Tomcat]
+2023-01-02 14:00:41.256|[34m20784[m|[33mmain[m|[36mINFO[m: Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-02 14:00:41.355|[34m20784[m|[33mmain[m|[36mINFO[m: Initializing Spring embedded WebApplicationContext
+2023-01-02 14:00:41.355|[34m20784[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 1311 ms
+2023-01-02 14:00:41.914|[34m20784[m|[33mmain[m|[36mINFO[m: Starting ProtocolHandler ["http-nio-8080"]
+2023-01-02 14:00:41.947|[34m20784[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-02 14:00:41.966|[34m20784[m|[33mmain[m|[36mINFO[m: Started Application in 2.409 seconds (JVM running for 3.931)
+2023-01-02 15:34:58.094|[34m19184[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 19184 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
+2023-01-02 15:34:58.106|[34m19184[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
+2023-01-02 15:34:59.429|[34m19184[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
+2023-01-02 15:34:59.442|[34m19184[m|[33mmain[m|[36mINFO[m: Initializing ProtocolHandler ["http-nio-8080"]
+2023-01-02 15:34:59.443|[34m19184[m|[33mmain[m|[36mINFO[m: Starting service [Tomcat]
+2023-01-02 15:34:59.443|[34m19184[m|[33mmain[m|[36mINFO[m: Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-02 15:34:59.551|[34m19184[m|[33mmain[m|[36mINFO[m: Initializing Spring embedded WebApplicationContext
+2023-01-02 15:34:59.552|[34m19184[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 1376 ms
+2023-01-02 15:35:00.313|[34m19184[m|[33mmain[m|[36mINFO[m: Starting ProtocolHandler ["http-nio-8080"]
+2023-01-02 15:35:00.366|[34m19184[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-02 15:35:00.378|[34m19184[m|[33mmain[m|[36mINFO[m: Started Application in 2.933 seconds (JVM running for 4.938)
+2023-01-02 15:37:11.061|[34m3684[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 3684 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
+2023-01-02 15:37:11.074|[34m3684[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
+2023-01-02 15:37:12.655|[34m3684[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
+2023-01-02 15:37:12.676|[34m3684[m|[33mmain[m|[36mINFO[m: Initializing ProtocolHandler ["http-nio-8080"]
+2023-01-02 15:37:12.677|[34m3684[m|[33mmain[m|[36mINFO[m: Starting service [Tomcat]
+2023-01-02 15:37:12.679|[34m3684[m|[33mmain[m|[36mINFO[m: Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-02 15:37:12.848|[34m3684[m|[33mmain[m|[36mINFO[m: Initializing Spring embedded WebApplicationContext
+2023-01-02 15:37:12.848|[34m3684[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 1686 ms
+2023-01-02 15:37:13.674|[34m3684[m|[33mmain[m|[36mINFO[m: Starting ProtocolHandler ["http-nio-8080"]
+2023-01-02 15:37:13.730|[34m3684[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-02 15:37:13.744|[34m3684[m|[33mmain[m|[36mINFO[m: Started Application in 3.405 seconds (JVM running for 5.491)
+2023-01-02 15:38:46.055|[34m15904[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 15904 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
+2023-01-02 15:38:46.066|[34m15904[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
+2023-01-02 15:38:47.044|[34m15904[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
+2023-01-02 15:38:47.052|[34m15904[m|[33mmain[m|[36mINFO[m: Initializing ProtocolHandler ["http-nio-8080"]
+2023-01-02 15:38:47.053|[34m15904[m|[33mmain[m|[36mINFO[m: Starting service [Tomcat]
+2023-01-02 15:38:47.053|[34m15904[m|[33mmain[m|[36mINFO[m: Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-02 15:38:47.144|[34m15904[m|[33mmain[m|[36mINFO[m: Initializing Spring embedded WebApplicationContext
+2023-01-02 15:38:47.144|[34m15904[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 1022 ms
+2023-01-02 15:38:47.729|[34m15904[m|[33mmain[m|[36mINFO[m: Starting ProtocolHandler ["http-nio-8080"]
+2023-01-02 15:38:47.761|[34m15904[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-02 15:38:47.779|[34m15904[m|[33mmain[m|[36mINFO[m: Started Application in 2.095 seconds (JVM running for 3.233)
+2023-01-02 15:43:22.805|[34m11568[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 11568 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
+2023-01-02 15:43:22.818|[34m11568[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
+2023-01-02 15:43:23.722|[34m11568[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
+2023-01-02 15:43:23.729|[34m11568[m|[33mmain[m|[36mINFO[m: Initializing ProtocolHandler ["http-nio-8080"]
+2023-01-02 15:43:23.730|[34m11568[m|[33mmain[m|[36mINFO[m: Starting service [Tomcat]
+2023-01-02 15:43:23.730|[34m11568[m|[33mmain[m|[36mINFO[m: Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-02 15:43:23.807|[34m11568[m|[33mmain[m|[36mINFO[m: Initializing Spring embedded WebApplicationContext
+2023-01-02 15:43:23.807|[34m11568[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 931 ms
+2023-01-02 15:43:24.303|[34m11568[m|[33mmain[m|[36mINFO[m: Starting ProtocolHandler ["http-nio-8080"]
+2023-01-02 15:43:24.334|[34m11568[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-02 15:43:24.351|[34m11568[m|[33mmain[m|[36mINFO[m: Started Application in 1.931 seconds (JVM running for 3.192)
+2023-01-02 16:01:14.653|[34m11516[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 11516 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
+2023-01-02 16:01:14.662|[34m11516[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
+2023-01-02 16:01:15.520|[34m11516[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
+2023-01-02 16:01:15.528|[34m11516[m|[33mmain[m|[36mINFO[m: Initializing ProtocolHandler ["http-nio-8080"]
+2023-01-02 16:01:15.528|[34m11516[m|[33mmain[m|[36mINFO[m: Starting service [Tomcat]
+2023-01-02 16:01:15.528|[34m11516[m|[33mmain[m|[36mINFO[m: Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-02 16:01:15.602|[34m11516[m|[33mmain[m|[36mINFO[m: Initializing Spring embedded WebApplicationContext
+2023-01-02 16:01:15.605|[34m11516[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 903 ms
+2023-01-02 16:01:16.196|[34m11516[m|[33mmain[m|[36mINFO[m: Starting ProtocolHandler ["http-nio-8080"]
+2023-01-02 16:01:16.233|[34m11516[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-02 16:01:16.251|[34m11516[m|[33mmain[m|[36mINFO[m: Started Application in 1.984 seconds (JVM running for 3.123)
+2023-01-02 20:55:29.785|[34m1104[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 1104 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
+2023-01-02 20:55:29.799|[34m1104[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
+2023-01-02 21:01:59.926|[34m1104[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
+2023-01-02 21:02:00.216|[34m1104[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 387091 ms
+2023-01-02 21:02:01.925|[34m1104[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-02 21:02:01.953|[34m1104[m|[33mmain[m|[36mINFO[m: Started Application in 392.814 seconds (JVM running for 395.283)

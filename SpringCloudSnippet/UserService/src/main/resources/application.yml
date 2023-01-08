@@ -1,19 +1,24 @@
-# =============进程=============
 server:
-  port: 8080
-
+  port: 8081
 spring:
+  application:
+    name: user-service
   # =============datasource=============
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: will
     password: will
-    url: jdbc:mysql://172.30.248.31:3306/snippet?useUnicode=true&characterEncoding=utf-8&userSSL=false
+    url: jdbc:mysql://172.30.254.165:3306/user-service?useUnicode=true&characterEncoding=utf-8&userSSL=false
     hikari:
       minimum-idle: 5
       maximum-pool-size: 10
-      pool-name: ubuntu-master
+      pool-name: user-service
       connection-timeout: 10000
 mybatis:
   mapper-locations: classpath:mappers/*.xml
+logging:
+  level:
+    com.snippet: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS
