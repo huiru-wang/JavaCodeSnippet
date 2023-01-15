@@ -41,18 +41,16 @@ public class GlobalConfig {
     }
 
     /**
-     * 配置Spring序列化响应时策略：
-     * null字段不参与序列化
-     * 统一日期格式
+     * 配置Spring序列化响应时策略
      *
      * @param builder Jackson2ObjectMapperBuilder
      * @return ObjectMapper
      */
     @Bean
     public ObjectMapper jacksonObjectMapper(Jackson2ObjectMapperBuilder builder) {
-        return builder.serializationInclusion(JsonInclude.Include.NON_NULL)
-                .dateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss"))
-                .timeZone(TimeZone.getTimeZone("GMT+8:00"))
+        return builder.serializationInclusion(JsonInclude.Include.NON_NULL) // null字段不参与序列化
+                .dateFormat(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")) // 时间格式
+                .timeZone(TimeZone.getTimeZone("GMT+8:00")) // 时区
                 .build();
     }
 

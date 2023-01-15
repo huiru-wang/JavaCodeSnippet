@@ -194,3 +194,105 @@ java.lang.IllegalArgumentException: username is blank
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
 	at java.lang.Thread.run(Thread.java:833) ~[?:?]
 2023-01-16 00:06:01.863|15644|pool-3-thread-1|INFO: schedule task start
+2023-01-16 00:06:16.202|13228|background-preinit|INFO: HV000001: Hibernate Validator 6.2.5.Final
+2023-01-16 00:06:16.240|13228|main|INFO: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 13228 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet\SpringBootSnippet)
+2023-01-16 00:06:16.247|13228|main|INFO: No active profile set, falling back to 1 default profile: "default"
+2023-01-16 00:06:16.883|13228|main|INFO: Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-16 00:06:16.885|13228|main|INFO: Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-16 00:06:16.905|13228|main|INFO: Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2023-01-16 00:06:17.521|13228|main|INFO: Tomcat initialized with port(s): 8080 (http)
+2023-01-16 00:06:17.531|13228|main|INFO: Initializing ProtocolHandler ["http-nio-8080"]
+2023-01-16 00:06:17.531|13228|main|INFO: Starting service [Tomcat]
+2023-01-16 00:06:17.532|13228|main|INFO: Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-16 00:06:17.623|13228|main|INFO: Initializing Spring embedded WebApplicationContext
+2023-01-16 00:06:17.623|13228|main|INFO: Root WebApplicationContext: initialization completed in 1319 ms
+2023-01-16 00:06:18.117|13228|main|INFO: Redisson 3.15.5
+2023-01-16 00:06:18.675|13228|redisson-netty-2-24|INFO: 1 connections initialized for host.ubuntu.wsl/172.26.95.86:6379
+2023-01-16 00:06:18.688|13228|redisson-netty-2-19|INFO: 24 connections initialized for host.ubuntu.wsl/172.26.95.86:6379
+2023-01-16 00:06:19.169|13228|main|INFO: Starting ProtocolHandler ["http-nio-8080"]
+2023-01-16 00:06:19.181|13228|main|INFO: Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-16 00:06:19.191|13228|pool-3-thread-1|INFO: schedule task start
+2023-01-16 00:06:19.194|13228|main|INFO: Started Application in 3.326 seconds (JVM running for 4.505)
+2023-01-16 00:06:21.641|13228|http-nio-8080-exec-2|INFO: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-16 00:06:21.641|13228|http-nio-8080-exec-2|INFO: Initializing Servlet 'dispatcherServlet'
+2023-01-16 00:06:21.643|13228|http-nio-8080-exec-2|INFO: Completed initialization in 2 ms
+2023-01-16 00:06:21.689|13228|http-nio-8080-exec-2|ERROR: IllegalArgument:{}
+java.lang.IllegalArgumentException: username is blank
+	at cn.hutool.core.lang.Assert.lambda$notBlank$5(Assert.java:340) ~[hutool-all-5.8.10.jar:?]
+	at cn.hutool.core.lang.Assert.notBlank(Assert.java:319) ~[hutool-all-5.8.10.jar:?]
+	at cn.hutool.core.lang.Assert.notBlank(Assert.java:340) ~[hutool-all-5.8.10.jar:?]
+	at com.snippet.spring.controller.UserController.getUserInfo(UserController.java:25) ~[classes/:?]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:577) ~[?:?]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1071) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:964) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:670) ~[tomcat-embed-core-9.0.69.jar:4.0.FR]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883) ~[spring-webmvc-5.3.24.jar:5.3.24]
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:779) ~[tomcat-embed-core-9.0.69.jar:4.0.FR]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117) ~[spring-web-5.3.24.jar:5.3.24]
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:177) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:360) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:891) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1784) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61) ~[tomcat-embed-core-9.0.69.jar:9.0.69]
+	at java.lang.Thread.run(Thread.java:833) ~[?:?]
+2023-01-16 00:06:39.195|13228|pool-3-thread-1|INFO: schedule task start
+2023-01-16 00:06:59.191|13228|pool-3-thread-2|INFO: schedule task start
+2023-01-16 00:07:19.192|13228|pool-3-thread-1|INFO: schedule task start
+2023-01-16 00:07:39.194|13228|pool-3-thread-3|INFO: schedule task start
+2023-01-16 00:07:59.201|13228|pool-3-thread-2|INFO: schedule task start
+2023-01-16 00:08:19.197|13228|pool-3-thread-4|INFO: schedule task start
+2023-01-16 00:08:39.191|13228|pool-3-thread-1|INFO: schedule task start
+2023-01-16 00:08:59.196|13228|pool-3-thread-5|INFO: schedule task start
+2023-01-16 00:09:19.205|13228|pool-3-thread-3|INFO: schedule task start
+2023-01-16 00:09:39.198|13228|pool-3-thread-6|INFO: schedule task start
+2023-01-16 00:09:59.200|13228|pool-3-thread-2|INFO: schedule task start
+2023-01-16 00:10:19.195|13228|pool-3-thread-2|INFO: schedule task start
+2023-01-16 00:10:39.192|13228|pool-3-thread-2|INFO: schedule task start
+2023-01-16 00:10:59.199|13228|pool-3-thread-2|INFO: schedule task start
+2023-01-16 00:11:19.201|13228|pool-3-thread-2|INFO: schedule task start
+2023-01-16 00:11:39.191|13228|pool-3-thread-2|INFO: schedule task start
+2023-01-16 00:11:59.194|13228|pool-3-thread-2|INFO: schedule task start
+2023-01-16 00:12:19.196|13228|pool-3-thread-2|INFO: schedule task start
+2023-01-16 00:12:39.196|13228|pool-3-thread-2|INFO: schedule task start
+2023-01-16 00:12:59.199|13228|pool-3-thread-2|INFO: schedule task start
+2023-01-16 00:13:19.200|13228|pool-3-thread-2|INFO: schedule task start
+2023-01-16 00:13:39.203|13228|pool-3-thread-2|INFO: schedule task start
