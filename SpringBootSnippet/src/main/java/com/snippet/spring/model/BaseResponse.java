@@ -19,6 +19,12 @@ public class BaseResponse<T> {
     @JsonProperty("data")
     private T data;
 
+    public BaseResponse(int code, String message, T data) {
+        this.code = code;
+        this.message = message;
+        this.data = data;
+    }
+
     public BaseResponse(ResponseEnums responseEnums) {
         this.code = responseEnums.getCode();
         this.message = responseEnums.getMessage();
