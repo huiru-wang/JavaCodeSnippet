@@ -1,105 +1,295 @@
-2023-01-02 13:41:44.448|[34m13160[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 13160 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
-2023-01-02 13:41:44.461|[34m13160[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
-2023-01-02 13:41:45.729|[34m13160[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
-2023-01-02 13:41:45.743|[34m13160[m|[33mmain[m|[36mINFO[m: Initializing ProtocolHandler ["http-nio-8080"]
-2023-01-02 13:41:45.743|[34m13160[m|[33mmain[m|[36mINFO[m: Starting service [Tomcat]
-2023-01-02 13:41:45.744|[34m13160[m|[33mmain[m|[36mINFO[m: Starting Servlet engine: [Apache Tomcat/9.0.69]
-2023-01-02 13:41:45.920|[34m13160[m|[33mmain[m|[36mINFO[m: Initializing Spring embedded WebApplicationContext
-2023-01-02 13:41:45.921|[34m13160[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 1401 ms
-2023-01-02 13:41:46.722|[34m13160[m|[33mmain[m|[36mINFO[m: Starting ProtocolHandler ["http-nio-8080"]
-2023-01-02 13:41:46.777|[34m13160[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
-2023-01-02 13:41:46.797|[34m13160[m|[33mmain[m|[36mINFO[m: Started Application in 2.822 seconds (JVM running for 5.042)
-2023-01-02 13:49:34.567|[34m14928[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 14928 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
-2023-01-02 13:49:34.576|[34m14928[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
-2023-01-02 13:49:35.703|[34m14928[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
-2023-01-02 13:49:35.713|[34m14928[m|[33mmain[m|[36mINFO[m: Initializing ProtocolHandler ["http-nio-8080"]
-2023-01-02 13:49:35.713|[34m14928[m|[33mmain[m|[36mINFO[m: Starting service [Tomcat]
-2023-01-02 13:49:35.714|[34m14928[m|[33mmain[m|[36mINFO[m: Starting Servlet engine: [Apache Tomcat/9.0.69]
-2023-01-02 13:49:35.807|[34m14928[m|[33mmain[m|[36mINFO[m: Initializing Spring embedded WebApplicationContext
-2023-01-02 13:49:35.808|[34m14928[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 1175 ms
-2023-01-02 13:49:36.516|[34m14928[m|[33mmain[m|[36mINFO[m: Starting ProtocolHandler ["http-nio-8080"]
-2023-01-02 13:49:36.567|[34m14928[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
-2023-01-02 13:49:36.576|[34m14928[m|[33mmain[m|[36mINFO[m: Started Application in 2.528 seconds (JVM running for 3.951)
-2023-01-02 14:00:03.960|[34m15084[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 15084 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
-2023-01-02 14:00:03.974|[34m15084[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
-2023-01-02 14:00:05.513|[34m15084[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
-2023-01-02 14:00:05.526|[34m15084[m|[33mmain[m|[36mINFO[m: Initializing ProtocolHandler ["http-nio-8080"]
-2023-01-02 14:00:05.526|[34m15084[m|[33mmain[m|[36mINFO[m: Starting service [Tomcat]
-2023-01-02 14:00:05.527|[34m15084[m|[33mmain[m|[36mINFO[m: Starting Servlet engine: [Apache Tomcat/9.0.69]
-2023-01-02 14:00:05.667|[34m15084[m|[33mmain[m|[36mINFO[m: Initializing Spring embedded WebApplicationContext
-2023-01-02 14:00:05.667|[34m15084[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 1621 ms
-2023-01-02 14:00:06.572|[34m15084[m|[33mmain[m|[36mINFO[m: Starting ProtocolHandler ["http-nio-8080"]
-2023-01-02 14:00:06.629|[34m15084[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
-2023-01-02 14:00:06.642|[34m15084[m|[33mmain[m|[36mINFO[m: Started Application in 3.344 seconds (JVM running for 5.713)
-2023-01-02 14:00:39.979|[34m20784[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 20784 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
-2023-01-02 14:00:39.993|[34m20784[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
-2023-01-02 14:00:41.246|[34m20784[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
-2023-01-02 14:00:41.255|[34m20784[m|[33mmain[m|[36mINFO[m: Initializing ProtocolHandler ["http-nio-8080"]
-2023-01-02 14:00:41.256|[34m20784[m|[33mmain[m|[36mINFO[m: Starting service [Tomcat]
-2023-01-02 14:00:41.256|[34m20784[m|[33mmain[m|[36mINFO[m: Starting Servlet engine: [Apache Tomcat/9.0.69]
-2023-01-02 14:00:41.355|[34m20784[m|[33mmain[m|[36mINFO[m: Initializing Spring embedded WebApplicationContext
-2023-01-02 14:00:41.355|[34m20784[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 1311 ms
-2023-01-02 14:00:41.914|[34m20784[m|[33mmain[m|[36mINFO[m: Starting ProtocolHandler ["http-nio-8080"]
-2023-01-02 14:00:41.947|[34m20784[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
-2023-01-02 14:00:41.966|[34m20784[m|[33mmain[m|[36mINFO[m: Started Application in 2.409 seconds (JVM running for 3.931)
-2023-01-02 15:34:58.094|[34m19184[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 19184 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
-2023-01-02 15:34:58.106|[34m19184[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
-2023-01-02 15:34:59.429|[34m19184[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
-2023-01-02 15:34:59.442|[34m19184[m|[33mmain[m|[36mINFO[m: Initializing ProtocolHandler ["http-nio-8080"]
-2023-01-02 15:34:59.443|[34m19184[m|[33mmain[m|[36mINFO[m: Starting service [Tomcat]
-2023-01-02 15:34:59.443|[34m19184[m|[33mmain[m|[36mINFO[m: Starting Servlet engine: [Apache Tomcat/9.0.69]
-2023-01-02 15:34:59.551|[34m19184[m|[33mmain[m|[36mINFO[m: Initializing Spring embedded WebApplicationContext
-2023-01-02 15:34:59.552|[34m19184[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 1376 ms
-2023-01-02 15:35:00.313|[34m19184[m|[33mmain[m|[36mINFO[m: Starting ProtocolHandler ["http-nio-8080"]
-2023-01-02 15:35:00.366|[34m19184[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
-2023-01-02 15:35:00.378|[34m19184[m|[33mmain[m|[36mINFO[m: Started Application in 2.933 seconds (JVM running for 4.938)
-2023-01-02 15:37:11.061|[34m3684[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 3684 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
-2023-01-02 15:37:11.074|[34m3684[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
-2023-01-02 15:37:12.655|[34m3684[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
-2023-01-02 15:37:12.676|[34m3684[m|[33mmain[m|[36mINFO[m: Initializing ProtocolHandler ["http-nio-8080"]
-2023-01-02 15:37:12.677|[34m3684[m|[33mmain[m|[36mINFO[m: Starting service [Tomcat]
-2023-01-02 15:37:12.679|[34m3684[m|[33mmain[m|[36mINFO[m: Starting Servlet engine: [Apache Tomcat/9.0.69]
-2023-01-02 15:37:12.848|[34m3684[m|[33mmain[m|[36mINFO[m: Initializing Spring embedded WebApplicationContext
-2023-01-02 15:37:12.848|[34m3684[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 1686 ms
-2023-01-02 15:37:13.674|[34m3684[m|[33mmain[m|[36mINFO[m: Starting ProtocolHandler ["http-nio-8080"]
-2023-01-02 15:37:13.730|[34m3684[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
-2023-01-02 15:37:13.744|[34m3684[m|[33mmain[m|[36mINFO[m: Started Application in 3.405 seconds (JVM running for 5.491)
-2023-01-02 15:38:46.055|[34m15904[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 15904 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
-2023-01-02 15:38:46.066|[34m15904[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
-2023-01-02 15:38:47.044|[34m15904[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
-2023-01-02 15:38:47.052|[34m15904[m|[33mmain[m|[36mINFO[m: Initializing ProtocolHandler ["http-nio-8080"]
-2023-01-02 15:38:47.053|[34m15904[m|[33mmain[m|[36mINFO[m: Starting service [Tomcat]
-2023-01-02 15:38:47.053|[34m15904[m|[33mmain[m|[36mINFO[m: Starting Servlet engine: [Apache Tomcat/9.0.69]
-2023-01-02 15:38:47.144|[34m15904[m|[33mmain[m|[36mINFO[m: Initializing Spring embedded WebApplicationContext
-2023-01-02 15:38:47.144|[34m15904[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 1022 ms
-2023-01-02 15:38:47.729|[34m15904[m|[33mmain[m|[36mINFO[m: Starting ProtocolHandler ["http-nio-8080"]
-2023-01-02 15:38:47.761|[34m15904[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
-2023-01-02 15:38:47.779|[34m15904[m|[33mmain[m|[36mINFO[m: Started Application in 2.095 seconds (JVM running for 3.233)
-2023-01-02 15:43:22.805|[34m11568[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 11568 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
-2023-01-02 15:43:22.818|[34m11568[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
-2023-01-02 15:43:23.722|[34m11568[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
-2023-01-02 15:43:23.729|[34m11568[m|[33mmain[m|[36mINFO[m: Initializing ProtocolHandler ["http-nio-8080"]
-2023-01-02 15:43:23.730|[34m11568[m|[33mmain[m|[36mINFO[m: Starting service [Tomcat]
-2023-01-02 15:43:23.730|[34m11568[m|[33mmain[m|[36mINFO[m: Starting Servlet engine: [Apache Tomcat/9.0.69]
-2023-01-02 15:43:23.807|[34m11568[m|[33mmain[m|[36mINFO[m: Initializing Spring embedded WebApplicationContext
-2023-01-02 15:43:23.807|[34m11568[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 931 ms
-2023-01-02 15:43:24.303|[34m11568[m|[33mmain[m|[36mINFO[m: Starting ProtocolHandler ["http-nio-8080"]
-2023-01-02 15:43:24.334|[34m11568[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
-2023-01-02 15:43:24.351|[34m11568[m|[33mmain[m|[36mINFO[m: Started Application in 1.931 seconds (JVM running for 3.192)
-2023-01-02 16:01:14.653|[34m11516[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 11516 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
-2023-01-02 16:01:14.662|[34m11516[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
-2023-01-02 16:01:15.520|[34m11516[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
-2023-01-02 16:01:15.528|[34m11516[m|[33mmain[m|[36mINFO[m: Initializing ProtocolHandler ["http-nio-8080"]
-2023-01-02 16:01:15.528|[34m11516[m|[33mmain[m|[36mINFO[m: Starting service [Tomcat]
-2023-01-02 16:01:15.528|[34m11516[m|[33mmain[m|[36mINFO[m: Starting Servlet engine: [Apache Tomcat/9.0.69]
-2023-01-02 16:01:15.602|[34m11516[m|[33mmain[m|[36mINFO[m: Initializing Spring embedded WebApplicationContext
-2023-01-02 16:01:15.605|[34m11516[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 903 ms
-2023-01-02 16:01:16.196|[34m11516[m|[33mmain[m|[36mINFO[m: Starting ProtocolHandler ["http-nio-8080"]
-2023-01-02 16:01:16.233|[34m11516[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
-2023-01-02 16:01:16.251|[34m11516[m|[33mmain[m|[36mINFO[m: Started Application in 1.984 seconds (JVM running for 3.123)
-2023-01-02 20:55:29.785|[34m1104[m|[33mmain[m|[36mINFO[m: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 1104 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet)
-2023-01-02 20:55:29.799|[34m1104[m|[33mmain[m|[36mINFO[m: No active profile set, falling back to 1 default profile: "default"
-2023-01-02 21:01:59.926|[34m1104[m|[33mmain[m|[36mINFO[m: Tomcat initialized with port(s): 8080 (http)
-2023-01-02 21:02:00.216|[34m1104[m|[33mmain[m|[36mINFO[m: Root WebApplicationContext: initialization completed in 387091 ms
-2023-01-02 21:02:01.925|[34m1104[m|[33mmain[m|[36mINFO[m: Tomcat started on port(s): 8080 (http) with context path ''
-2023-01-02 21:02:01.953|[34m1104[m|[33mmain[m|[36mINFO[m: Started Application in 392.814 seconds (JVM running for 395.283)
+2023-01-15 10:29:48.445|2104|background-preinit|INFO: HV000001: Hibernate Validator 6.2.5.Final
+2023-01-15 10:29:48.483|2104|main|INFO: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 2104 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet\SpringBootSnippet)
+2023-01-15 10:29:48.488|2104|main|INFO: No active profile set, falling back to 1 default profile: "default"
+2023-01-15 10:29:49.268|2104|main|INFO: Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-15 10:29:49.272|2104|main|INFO: Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-15 10:29:49.299|2104|main|INFO: Finished Spring Data repository scanning in 7 ms. Found 0 Redis repository interfaces.
+2023-01-15 10:29:49.425|2104|main|WARN: No MyBatis mapper was found in '[com.snippet.spring.dao.*]' package. Please check your configuration.
+2023-01-15 10:29:50.150|2104|main|INFO: Tomcat initialized with port(s): 8080 (http)
+2023-01-15 10:29:50.162|2104|main|INFO: Initializing ProtocolHandler ["http-nio-8080"]
+2023-01-15 10:29:50.162|2104|main|INFO: Starting service [Tomcat]
+2023-01-15 10:29:50.163|2104|main|INFO: Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-15 10:29:50.285|2104|main|INFO: Initializing Spring embedded WebApplicationContext
+2023-01-15 10:29:50.286|2104|main|INFO: Root WebApplicationContext: initialization completed in 1741 ms
+2023-01-15 10:29:50.379|2104|main|WARN: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'helloController': Unsatisfied dependency expressed through field 'userMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.snippet.spring.dao.mapper.UserMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2023-01-15 10:29:50.382|2104|main|INFO: Stopping service [Tomcat]
+2023-01-15 10:29:50.402|2104|main|INFO: 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-01-15 10:29:50.423|2104|main|ERROR: 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userMapper in com.snippet.spring.controller.HelloController required a bean of type 'com.snippet.spring.dao.mapper.UserMapper' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.snippet.spring.dao.mapper.UserMapper' in your configuration.
+
+2023-01-15 10:35:35.793|2860|background-preinit|INFO: HV000001: Hibernate Validator 6.2.5.Final
+2023-01-15 10:35:35.834|2860|main|INFO: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 2860 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet\SpringBootSnippet)
+2023-01-15 10:35:35.838|2860|main|INFO: No active profile set, falling back to 1 default profile: "default"
+2023-01-15 10:35:36.562|2860|main|INFO: Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-15 10:35:36.564|2860|main|INFO: Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-15 10:35:36.583|2860|main|INFO: Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2023-01-15 10:35:36.685|2860|main|WARN: No MyBatis mapper was found in '[com.snippet.spring.dao.*]' package. Please check your configuration.
+2023-01-15 10:35:37.274|2860|main|INFO: Tomcat initialized with port(s): 8080 (http)
+2023-01-15 10:35:37.283|2860|main|INFO: Initializing ProtocolHandler ["http-nio-8080"]
+2023-01-15 10:35:37.283|2860|main|INFO: Starting service [Tomcat]
+2023-01-15 10:35:37.284|2860|main|INFO: Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-15 10:35:37.374|2860|main|INFO: Initializing Spring embedded WebApplicationContext
+2023-01-15 10:35:37.374|2860|main|INFO: Root WebApplicationContext: initialization completed in 1483 ms
+2023-01-15 10:35:37.450|2860|main|WARN: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'helloController': Unsatisfied dependency expressed through field 'userMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.snippet.spring.dao.mapper.UserMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2023-01-15 10:35:37.453|2860|main|INFO: Stopping service [Tomcat]
+2023-01-15 10:35:37.469|2860|main|INFO: 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-01-15 10:35:37.488|2860|main|ERROR: 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userMapper in com.snippet.spring.controller.HelloController required a bean of type 'com.snippet.spring.dao.mapper.UserMapper' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.snippet.spring.dao.mapper.UserMapper' in your configuration.
+
+2023-01-15 10:40:49.651|15604|background-preinit|INFO: HV000001: Hibernate Validator 6.2.5.Final
+2023-01-15 10:40:49.698|15604|main|INFO: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 15604 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet\SpringBootSnippet)
+2023-01-15 10:40:49.704|15604|main|INFO: No active profile set, falling back to 1 default profile: "default"
+2023-01-15 10:40:50.451|15604|main|INFO: Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-15 10:40:50.453|15604|main|INFO: Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-15 10:40:50.471|15604|main|INFO: Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2023-01-15 10:40:50.568|15604|main|WARN: No MyBatis mapper was found in '[com.snippet.spring.dao.*]' package. Please check your configuration.
+2023-01-15 10:40:51.182|15604|main|INFO: Tomcat initialized with port(s): 8080 (http)
+2023-01-15 10:40:51.192|15604|main|INFO: Initializing ProtocolHandler ["http-nio-8080"]
+2023-01-15 10:40:51.192|15604|main|INFO: Starting service [Tomcat]
+2023-01-15 10:40:51.193|15604|main|INFO: Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-15 10:40:51.304|15604|main|INFO: Initializing Spring embedded WebApplicationContext
+2023-01-15 10:40:51.305|15604|main|INFO: Root WebApplicationContext: initialization completed in 1543 ms
+2023-01-15 10:40:51.385|15604|main|WARN: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'helloController': Unsatisfied dependency expressed through field 'userMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.snippet.spring.dao.mapper.UserMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2023-01-15 10:40:51.389|15604|main|INFO: Stopping service [Tomcat]
+2023-01-15 10:40:51.406|15604|main|INFO: 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-01-15 10:40:51.428|15604|main|ERROR: 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userMapper in com.snippet.spring.controller.HelloController required a bean of type 'com.snippet.spring.dao.mapper.UserMapper' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.snippet.spring.dao.mapper.UserMapper' in your configuration.
+
+2023-01-15 10:41:29.951|17936|background-preinit|INFO: HV000001: Hibernate Validator 6.2.5.Final
+2023-01-15 10:41:29.995|17936|main|INFO: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 17936 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet\SpringBootSnippet)
+2023-01-15 10:41:30.000|17936|main|INFO: No active profile set, falling back to 1 default profile: "default"
+2023-01-15 10:41:30.683|17936|main|INFO: Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-15 10:41:30.686|17936|main|INFO: Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-15 10:41:30.714|17936|main|INFO: Finished Spring Data repository scanning in 8 ms. Found 0 Redis repository interfaces.
+2023-01-15 10:41:30.811|17936|main|WARN: No MyBatis mapper was found in '[com.snippet.spring.dao.mapper.*]' package. Please check your configuration.
+2023-01-15 10:41:31.467|17936|main|INFO: Tomcat initialized with port(s): 8080 (http)
+2023-01-15 10:41:31.475|17936|main|INFO: Initializing ProtocolHandler ["http-nio-8080"]
+2023-01-15 10:41:31.476|17936|main|INFO: Starting service [Tomcat]
+2023-01-15 10:41:31.476|17936|main|INFO: Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-15 10:41:31.576|17936|main|INFO: Initializing Spring embedded WebApplicationContext
+2023-01-15 10:41:31.576|17936|main|INFO: Root WebApplicationContext: initialization completed in 1523 ms
+2023-01-15 10:41:31.662|17936|main|WARN: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'helloController': Unsatisfied dependency expressed through field 'userMapper'; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.snippet.spring.dao.mapper.UserMapper' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {@org.springframework.beans.factory.annotation.Autowired(required=true)}
+2023-01-15 10:41:31.665|17936|main|INFO: Stopping service [Tomcat]
+2023-01-15 10:41:31.680|17936|main|INFO: 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-01-15 10:41:31.699|17936|main|ERROR: 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Field userMapper in com.snippet.spring.controller.HelloController required a bean of type 'com.snippet.spring.dao.mapper.UserMapper' that could not be found.
+
+The injection point has the following annotations:
+	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+
+
+Action:
+
+Consider defining a bean of type 'com.snippet.spring.dao.mapper.UserMapper' in your configuration.
+
+2023-01-15 10:44:51.540|18144|background-preinit|INFO: HV000001: Hibernate Validator 6.2.5.Final
+2023-01-15 10:44:51.574|18144|main|INFO: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 18144 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet\SpringBootSnippet)
+2023-01-15 10:44:51.578|18144|main|INFO: No active profile set, falling back to 1 default profile: "default"
+2023-01-15 10:44:52.242|18144|main|INFO: Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-15 10:44:52.245|18144|main|INFO: Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-15 10:44:52.262|18144|main|INFO: Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2023-01-15 10:44:52.869|18144|main|INFO: Tomcat initialized with port(s): 8080 (http)
+2023-01-15 10:44:52.877|18144|main|INFO: Initializing ProtocolHandler ["http-nio-8080"]
+2023-01-15 10:44:52.877|18144|main|INFO: Starting service [Tomcat]
+2023-01-15 10:44:52.878|18144|main|INFO: Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-15 10:44:52.961|18144|main|INFO: Initializing Spring embedded WebApplicationContext
+2023-01-15 10:44:52.962|18144|main|INFO: Root WebApplicationContext: initialization completed in 1342 ms
+2023-01-15 10:44:53.540|18144|main|INFO: Redisson 3.15.5
+2023-01-15 10:44:54.166|18144|redisson-netty-2-14|INFO: 1 connections initialized for host.ubuntu.wsl/172.26.87.194:6379
+2023-01-15 10:44:55.119|18144|redisson-netty-2-20|INFO: 24 connections initialized for host.ubuntu.wsl/172.26.87.194:6379
+2023-01-15 10:44:55.431|18144|main|WARN: Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisConnectionFactory' defined in class path resource [org/springframework/boot/autoconfigure/data/redis/LettuceConnectionConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory]: Factory method 'redisConnectionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/apache/commons/pool2/impl/GenericObjectPoolConfig
+2023-01-15 10:44:55.460|18144|main|INFO: Stopping service [Tomcat]
+2023-01-15 10:44:55.472|18144|main|INFO: 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+2023-01-15 10:44:55.485|18144|main|ERROR: Application run failed
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'redisConnectionFactory' defined in class path resource [org/springframework/boot/autoconfigure/data/redis/LettuceConnectionConfiguration.class]: Bean instantiation via factory method failed; nested exception is org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory]: Factory method 'redisConnectionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/apache/commons/pool2/impl/GenericObjectPoolConfig
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:658) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:638) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:918) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583) ~[spring-context-5.3.24.jar:5.3.24]
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:147) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:731) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:408) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:307) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1303) ~[spring-boot-2.7.6.jar:2.7.6]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1292) ~[spring-boot-2.7.6.jar:2.7.6]
+	at com.snippet.spring.Application.main(Application.java:23) ~[classes/:?]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory]: Factory method 'redisConnectionFactory' threw exception; nested exception is java.lang.NoClassDefFoundError: org/apache/commons/pool2/impl/GenericObjectPoolConfig
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:185) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-5.3.24.jar:5.3.24]
+	... 19 more
+Caused by: java.lang.NoClassDefFoundError: org/apache/commons/pool2/impl/GenericObjectPoolConfig
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingClientConfiguration$LettucePoolingClientConfigurationBuilder.<init>(LettucePoolingClientConfiguration.java:94) ~[spring-data-redis-2.7.6.jar:2.7.6]
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingClientConfiguration.builder(LettucePoolingClientConfiguration.java:51) ~[spring-data-redis-2.7.6.jar:2.7.6]
+	at org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration$PoolBuilderFactory.createBuilder(LettuceConnectionConfiguration.java:176) ~[spring-boot-autoconfigure-2.7.6.jar:2.7.6]
+	at org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration.createBuilder(LettuceConnectionConfiguration.java:112) ~[spring-boot-autoconfigure-2.7.6.jar:2.7.6]
+	at org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration.getLettuceClientConfiguration(LettuceConnectionConfiguration.java:99) ~[spring-boot-autoconfigure-2.7.6.jar:2.7.6]
+	at org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration.redisConnectionFactory(LettuceConnectionConfiguration.java:81) ~[spring-boot-autoconfigure-2.7.6.jar:2.7.6]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:577) ~[?:?]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-5.3.24.jar:5.3.24]
+	... 19 more
+Caused by: java.lang.ClassNotFoundException: org.apache.commons.pool2.impl.GenericObjectPoolConfig
+	at jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:641) ~[?:?]
+	at jdk.internal.loader.ClassLoaders$AppClassLoader.loadClass(ClassLoaders.java:188) ~[?:?]
+	at java.lang.ClassLoader.loadClass(ClassLoader.java:521) ~[?:?]
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingClientConfiguration$LettucePoolingClientConfigurationBuilder.<init>(LettucePoolingClientConfiguration.java:94) ~[spring-data-redis-2.7.6.jar:2.7.6]
+	at org.springframework.data.redis.connection.lettuce.LettucePoolingClientConfiguration.builder(LettucePoolingClientConfiguration.java:51) ~[spring-data-redis-2.7.6.jar:2.7.6]
+	at org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration$PoolBuilderFactory.createBuilder(LettuceConnectionConfiguration.java:176) ~[spring-boot-autoconfigure-2.7.6.jar:2.7.6]
+	at org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration.createBuilder(LettuceConnectionConfiguration.java:112) ~[spring-boot-autoconfigure-2.7.6.jar:2.7.6]
+	at org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration.getLettuceClientConfiguration(LettuceConnectionConfiguration.java:99) ~[spring-boot-autoconfigure-2.7.6.jar:2.7.6]
+	at org.springframework.boot.autoconfigure.data.redis.LettuceConnectionConfiguration.redisConnectionFactory(LettuceConnectionConfiguration.java:81) ~[spring-boot-autoconfigure-2.7.6.jar:2.7.6]
+	at jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[?:?]
+	at java.lang.reflect.Method.invoke(Method.java:577) ~[?:?]
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:154) ~[spring-beans-5.3.24.jar:5.3.24]
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-5.3.24.jar:5.3.24]
+	... 19 more
+2023-01-15 10:46:36.379|15788|background-preinit|INFO: HV000001: Hibernate Validator 6.2.5.Final
+2023-01-15 10:46:36.416|15788|main|INFO: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 15788 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet\SpringBootSnippet)
+2023-01-15 10:46:36.420|15788|main|INFO: No active profile set, falling back to 1 default profile: "default"
+2023-01-15 10:46:37.107|15788|main|INFO: Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-15 10:46:37.110|15788|main|INFO: Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-15 10:46:37.126|15788|main|INFO: Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2023-01-15 10:46:37.842|15788|main|INFO: Tomcat initialized with port(s): 8080 (http)
+2023-01-15 10:46:37.851|15788|main|INFO: Initializing ProtocolHandler ["http-nio-8080"]
+2023-01-15 10:46:37.852|15788|main|INFO: Starting service [Tomcat]
+2023-01-15 10:46:37.852|15788|main|INFO: Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-15 10:46:37.937|15788|main|INFO: Initializing Spring embedded WebApplicationContext
+2023-01-15 10:46:37.937|15788|main|INFO: Root WebApplicationContext: initialization completed in 1473 ms
+2023-01-15 10:46:38.428|15788|main|INFO: Redisson 3.15.5
+2023-01-15 10:46:39.020|15788|redisson-netty-2-19|INFO: 1 connections initialized for host.ubuntu.wsl/172.26.87.194:6379
+2023-01-15 10:46:39.036|15788|redisson-netty-2-21|INFO: 24 connections initialized for host.ubuntu.wsl/172.26.87.194:6379
+2023-01-15 10:46:39.480|15788|main|INFO: Starting ProtocolHandler ["http-nio-8080"]
+2023-01-15 10:46:39.491|15788|main|INFO: Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-15 10:46:39.500|15788|pool-3-thread-1|INFO: schedule task start
+2023-01-15 10:46:39.502|15788|main|INFO: Started Application in 3.456 seconds (JVM running for 4.655)
+2023-01-15 10:46:59.506|15788|pool-3-thread-1|INFO: schedule task start
+2023-01-15 10:47:19.507|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:47:39.511|15788|pool-3-thread-1|INFO: schedule task start
+2023-01-15 10:47:59.510|15788|pool-3-thread-3|INFO: schedule task start
+2023-01-15 10:48:19.516|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:48:39.514|15788|pool-3-thread-4|INFO: schedule task start
+2023-01-15 10:48:59.508|15788|pool-3-thread-1|INFO: schedule task start
+2023-01-15 10:49:19.503|15788|pool-3-thread-5|INFO: schedule task start
+2023-01-15 10:49:39.504|15788|pool-3-thread-3|INFO: schedule task start
+2023-01-15 10:49:59.504|15788|pool-3-thread-6|INFO: schedule task start
+2023-01-15 10:50:19.502|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:50:39.511|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:50:59.510|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:51:19.501|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:51:39.505|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:51:59.502|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:52:19.513|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:52:39.514|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:52:59.503|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:53:19.514|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:53:39.509|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:53:59.513|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:54:19.500|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:54:39.505|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:54:59.508|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:55:19.513|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:55:39.503|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:55:59.514|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:56:19.513|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:56:39.511|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:56:59.508|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:57:19.511|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:57:39.501|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:57:59.509|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:58:19.503|15788|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:58:31.832|12024|background-preinit|INFO: HV000001: Hibernate Validator 6.2.5.Final
+2023-01-15 10:58:31.868|12024|main|INFO: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 12024 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet\SpringBootSnippet)
+2023-01-15 10:58:31.873|12024|main|INFO: No active profile set, falling back to 1 default profile: "default"
+2023-01-15 10:58:32.452|12024|main|INFO: Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-15 10:58:32.454|12024|main|INFO: Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-15 10:58:32.472|12024|main|INFO: Finished Spring Data repository scanning in 5 ms. Found 0 Redis repository interfaces.
+2023-01-15 10:58:33.080|12024|main|INFO: Tomcat initialized with port(s): 8080 (http)
+2023-01-15 10:58:33.088|12024|main|INFO: Initializing ProtocolHandler ["http-nio-8080"]
+2023-01-15 10:58:33.088|12024|main|INFO: Starting service [Tomcat]
+2023-01-15 10:58:33.089|12024|main|INFO: Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-15 10:58:33.178|12024|main|INFO: Initializing Spring embedded WebApplicationContext
+2023-01-15 10:58:33.178|12024|main|INFO: Root WebApplicationContext: initialization completed in 1263 ms
+2023-01-15 10:58:33.728|12024|main|INFO: Redisson 3.15.5
+2023-01-15 10:58:34.371|12024|redisson-netty-2-18|INFO: 1 connections initialized for host.ubuntu.wsl/172.26.87.194:6379
+2023-01-15 10:58:34.384|12024|redisson-netty-2-19|INFO: 24 connections initialized for host.ubuntu.wsl/172.26.87.194:6379
+2023-01-15 10:58:34.847|12024|main|INFO: Starting ProtocolHandler ["http-nio-8080"]
+2023-01-15 10:58:34.858|12024|main|INFO: Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-15 10:58:34.868|12024|pool-3-thread-1|INFO: schedule task start
+2023-01-15 10:58:34.872|12024|main|INFO: Started Application in 3.448 seconds (JVM running for 4.71)
+2023-01-15 10:58:54.872|12024|pool-3-thread-1|INFO: schedule task start
+2023-01-15 10:59:14.883|12024|pool-3-thread-2|INFO: schedule task start
+2023-01-15 10:59:34.875|12024|pool-3-thread-1|INFO: schedule task start
+2023-01-15 10:59:54.869|12024|pool-3-thread-3|INFO: schedule task start
+2023-01-15 11:00:14.878|12024|pool-3-thread-2|INFO: schedule task start

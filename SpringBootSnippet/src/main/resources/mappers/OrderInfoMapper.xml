@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.snippet.spring.dao.mapper.OrderInfoMapper">
+    <resultMap id="BaseResultMap" type="com.snippet.spring.dao.entity.OrderInfo">
+        <id column="id" jdbcType="BIGINT" property="id"/>
+        <id column="orderId" jdbcType="BIGINT" property="orderId"/>
+        <result column="productId" jdbcType="BIGINT" property="productId"/>
+        <result column="quantity" jdbcType="BIGINT" property="quantity"/>
+        <result column="remarks" jdbcType="VARCHAR" property="remarks"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id
+        , orderId, productId, quantity, remarks
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="map" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from t_orderInfo
+        where id = #{id,jdbcType=BIGINT}
+        and orderId = #{orderId,jdbcType=BIGINT}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="map">
+        delete
+        from t_orderInfo
+        where id = #{id,jdbcType=BIGINT}
+          and orderId = #{orderId,jdbcType=BIGINT}
+    </delete>
+    <insert id="insert" parameterType="com.snippet.spring.dao.entity.OrderInfo">
+        insert into t_orderInfo (id, orderId, productId,
+                                 quantity, remarks)
+        values (#{id,jdbcType=BIGINT}, #{orderId,jdbcType=BIGINT}, #{productId,jdbcType=BIGINT},
+                #{quantity,jdbcType=BIGINT}, #{remarks,jdbcType=VARCHAR})
+    </insert>
+    <insert id="insertSelective" parameterType="com.snippet.spring.dao.entity.OrderInfo">
+        insert into t_orderInfo
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="orderId != null">
+                orderId,
+            </if>
+            <if test="productId != null">
+                productId,
+            </if>
+            <if test="quantity != null">
+                quantity,
+            </if>
+            <if test="remarks != null">
+                remarks,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=BIGINT},
+            </if>
+            <if test="orderId != null">
+                #{orderId,jdbcType=BIGINT},
+            </if>
+            <if test="productId != null">
+                #{productId,jdbcType=BIGINT},
+            </if>
+            <if test="quantity != null">
+                #{quantity,jdbcType=BIGINT},
+            </if>
+            <if test="remarks != null">
+                #{remarks,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.snippet.spring.dao.entity.OrderInfo">
+        update t_orderInfo
+        <set>
+            <if test="productId != null">
+                productId = #{productId,jdbcType=BIGINT},
+            </if>
+            <if test="quantity != null">
+                quantity = #{quantity,jdbcType=BIGINT},
+            </if>
+            <if test="remarks != null">
+                remarks = #{remarks,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+        and orderId = #{orderId,jdbcType=BIGINT}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.snippet.spring.dao.entity.OrderInfo">
+        update t_orderInfo
+        set productId = #{productId,jdbcType=BIGINT},
+            quantity  = #{quantity,jdbcType=BIGINT},
+            remarks   = #{remarks,jdbcType=VARCHAR}
+        where id = #{id,jdbcType=BIGINT}
+          and orderId = #{orderId,jdbcType=BIGINT}
+    </update>
+</mapper>

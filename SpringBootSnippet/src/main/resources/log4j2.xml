@@ -4,24 +4,30 @@
     <Properties>
         <property name="APP_NAME">spring-snippet</property>
         <!--日志存放路径-->
-        <property name="LOG_PATH">SpringBootSnippet/logs</property>
+        <property name="LOG_PATH">logs</property>
         <!--日志备份路径-->
         <property name="LOG_BACKUP_PATH">${LOG_PATH}/backup</property>
         <!--日志格式-->
-        <property name="PATTERN">%d{yyyy-MM-dd HH:mm:ss.SSS}|%blue{${sys:PID}}|%yellow{%thread}|%cyan{%level}: %msg%n
+        <property name="PATTERN">
+            %highlight{%d{yyyy-MM-dd HH:mm:ss.SSS}|%blue{${sys:PID}}|%yellow{%thread}|%cyan{%level}: %msg%n}{ERROR=red,
+            WARN=bg_#5792e6 fg_#eef26b bold, INFO=black, DEBUG=#3fe0a8, TRACE=blue}
+        </property>
+        <property name="FILE_PATTERN">
+            %highlight{%d{yyyy-MM-dd HH:mm:ss.SSS}|${sys:PID}|%thread|%level: %msg%n}{ERROR=red,
+            WARN=bg_#5792e6 fg_#eef26b bold, INFO=black, DEBUG=#3fe0a8, TRACE=blue}
         </property>
     </Properties>
 
     <!--==============定义日志输出目的地、内容和格式等==============-->
     <Appenders>
         <Console name="Console" target="SYSTEM_OUT">
-            <PatternLayout pattern="${PATTERN}"/>
+            <PatternLayout charset="UTF-8" pattern="${PATTERN}"/>
         </Console>
 
         <RollingFile name="RollingFile" fileName="${LOG_PATH}/${APP_NAME}.log"
                      filePattern="${LOG_BACKUP_PATH}/$${date:yyyy-MM}/${APP_NAME}-%d{yyyy-MM-dd}_%i.log.zip">
             <!--输出日志的格式, 不设置默认为:%m%n-->
-            <PatternLayout pattern="${PATTERN}"/>
+            <PatternLayout charset="UTF-8" pattern="${FILE_PATTERN}"/>
             <!--只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）-->
             <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
             <!--归档设置-->
