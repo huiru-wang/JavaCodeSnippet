@@ -293,3 +293,195 @@ Caused by: java.lang.ClassNotFoundException: org.apache.commons.pool2.impl.Gener
 2023-01-15 10:59:34.875|12024|pool-3-thread-1|INFO: schedule task start
 2023-01-15 10:59:54.869|12024|pool-3-thread-3|INFO: schedule task start
 2023-01-15 11:00:14.878|12024|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:00:24.294|18468|background-preinit|INFO: HV000001: Hibernate Validator 6.2.5.Final
+2023-01-15 11:00:24.351|18468|main|INFO: Starting Application using Java 18.0.2.1 on DESKTOP-0QLSRHM with PID 18468 (D:\workspace\JavaCodeSnippet\SpringBootSnippet\target\classes started by haiah in D:\workspace\JavaCodeSnippet\SpringBootSnippet)
+2023-01-15 11:00:24.358|18468|main|INFO: No active profile set, falling back to 1 default profile: "default"
+2023-01-15 11:00:25.050|18468|main|INFO: Multiple Spring Data modules found, entering strict repository configuration mode
+2023-01-15 11:00:25.053|18468|main|INFO: Bootstrapping Spring Data Redis repositories in DEFAULT mode.
+2023-01-15 11:00:25.071|18468|main|INFO: Finished Spring Data repository scanning in 6 ms. Found 0 Redis repository interfaces.
+2023-01-15 11:00:25.726|18468|main|INFO: Tomcat initialized with port(s): 8080 (http)
+2023-01-15 11:00:25.735|18468|main|INFO: Initializing ProtocolHandler ["http-nio-8080"]
+2023-01-15 11:00:25.735|18468|main|INFO: Starting service [Tomcat]
+2023-01-15 11:00:25.736|18468|main|INFO: Starting Servlet engine: [Apache Tomcat/9.0.69]
+2023-01-15 11:00:25.824|18468|main|INFO: Initializing Spring embedded WebApplicationContext
+2023-01-15 11:00:25.824|18468|main|INFO: Root WebApplicationContext: initialization completed in 1396 ms
+2023-01-15 11:00:26.328|18468|main|INFO: Redisson 3.15.5
+2023-01-15 11:00:26.896|18468|redisson-netty-2-14|INFO: 1 connections initialized for host.ubuntu.wsl/172.26.87.194:6379
+2023-01-15 11:00:26.911|18468|redisson-netty-2-20|INFO: 24 connections initialized for host.ubuntu.wsl/172.26.87.194:6379
+2023-01-15 11:00:27.342|18468|main|INFO: Starting ProtocolHandler ["http-nio-8080"]
+2023-01-15 11:00:27.352|18468|main|INFO: Tomcat started on port(s): 8080 (http) with context path ''
+2023-01-15 11:00:27.362|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:00:27.365|18468|main|INFO: Started Application in 3.419 seconds (JVM running for 4.675)
+2023-01-15 11:00:47.373|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:01:07.362|18468|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:01:27.376|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:01:47.372|18468|pool-3-thread-3|INFO: schedule task start
+2023-01-15 11:01:58.234|18468|http-nio-8080-exec-3|INFO: Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-01-15 11:01:58.234|18468|http-nio-8080-exec-3|INFO: Initializing Servlet 'dispatcherServlet'
+2023-01-15 11:01:58.235|18468|http-nio-8080-exec-3|INFO: Completed initialization in 1 ms
+2023-01-15 11:01:58.350|18468|http-nio-8080-exec-3|INFO: wsl-datasource - Starting...
+2023-01-15 11:01:58.812|18468|http-nio-8080-exec-3|INFO: wsl-datasource - Start completed.
+2023-01-15 11:02:07.377|18468|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:02:27.368|18468|pool-3-thread-4|INFO: schedule task start
+2023-01-15 11:02:47.365|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:03:07.368|18468|pool-3-thread-5|INFO: schedule task start
+2023-01-15 11:03:27.368|18468|pool-3-thread-3|INFO: schedule task start
+2023-01-15 11:03:47.364|18468|pool-3-thread-6|INFO: schedule task start
+2023-01-15 11:04:07.362|18468|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:04:27.372|18468|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:04:47.373|18468|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:05:07.367|18468|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:05:27.369|18468|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:05:47.369|18468|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:06:07.375|18468|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:06:27.362|18468|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:06:47.365|18468|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:07:07.370|18468|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:07:27.362|18468|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:07:47.376|18468|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:08:07.365|18468|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:08:27.364|18468|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:08:47.375|18468|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:09:07.375|18468|pool-3-thread-2|INFO: schedule task start
+2023-01-15 11:09:27.362|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:09:47.372|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:10:07.362|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:10:27.365|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:10:47.369|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:11:07.365|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:11:27.364|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:11:47.374|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:12:07.362|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:12:27.365|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:12:47.365|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:13:07.372|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:13:27.374|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:13:47.376|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:14:07.376|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:14:27.362|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:14:47.375|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:15:07.367|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:15:27.365|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:15:47.368|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:16:07.362|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:16:27.377|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:16:47.364|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:17:07.370|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:17:27.373|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:17:47.375|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:18:07.362|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:18:27.370|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:18:47.365|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:19:07.365|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:19:27.366|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:19:47.374|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:20:07.374|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:20:27.362|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:20:47.368|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:21:07.375|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:21:27.362|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:21:47.362|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:22:07.363|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:22:27.371|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:22:47.362|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:23:07.375|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:23:27.366|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:23:47.370|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:24:07.367|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:24:27.374|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:24:47.377|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:25:07.366|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:25:27.377|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:25:47.372|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:26:07.375|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:26:27.366|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:26:47.373|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:27:07.362|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:27:27.375|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:27:47.373|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:28:07.362|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:28:27.378|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:28:47.369|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:29:07.372|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:29:27.372|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:29:47.364|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:30:07.372|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:30:27.362|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:30:47.372|18468|pool-3-thread-9|INFO: schedule task start
+2023-01-15 11:31:07.376|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:31:27.375|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:31:47.373|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:32:07.369|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:32:27.365|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:32:47.372|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:33:07.369|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:33:27.363|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:33:47.371|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:34:07.377|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:34:27.364|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:34:47.372|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:35:07.370|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:35:27.367|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:35:47.370|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:36:07.375|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:36:27.374|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:36:47.367|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:37:07.366|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:37:27.362|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:37:47.376|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:38:07.362|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:38:27.365|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:38:47.368|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:39:07.366|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:39:27.364|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:39:47.368|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:40:07.372|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:40:27.362|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:40:47.369|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:41:07.377|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:41:27.375|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:41:47.367|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:42:07.367|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:42:27.362|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:42:47.373|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:43:07.362|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:43:27.374|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:43:47.377|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:44:07.375|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:44:27.376|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:44:47.362|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:45:07.368|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:45:27.362|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:45:47.366|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:46:07.377|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:46:27.365|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:46:47.363|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:47:07.366|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:47:27.364|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:47:47.365|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:48:07.378|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:48:27.368|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:48:47.362|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:49:07.367|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:49:27.368|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:49:47.362|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:50:07.362|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:50:27.374|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:50:47.368|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:51:07.375|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:51:27.377|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:51:47.370|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:52:07.362|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:52:27.363|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:52:47.373|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:53:07.371|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:53:27.373|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:53:47.372|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:54:07.373|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:54:27.370|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:54:47.369|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:55:07.370|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:55:27.369|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:55:47.374|18468|pool-3-thread-1|INFO: schedule task start
+2023-01-15 11:55:55.707|18468|SpringApplicationShutdownHook|INFO: wsl-datasource - Shutdown initiated...
+2023-01-15 11:55:55.715|18468|SpringApplicationShutdownHook|INFO: wsl-datasource - Shutdown completed.
