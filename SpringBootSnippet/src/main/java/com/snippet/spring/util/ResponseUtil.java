@@ -1,6 +1,6 @@
 package com.snippet.spring.util;
 
-import com.snippet.spring.common.ResponseEnums;
+import com.snippet.spring.common.enums.ResponseEnums;
 import com.snippet.spring.model.BaseResponse;
 
 public class ResponseUtil {
@@ -13,7 +13,11 @@ public class ResponseUtil {
         return new BaseResponse<>(ResponseEnums.SUCCESS.getCode(), ResponseEnums.SUCCESS.getMessage(), data);
     }
 
-    public static BaseResponse fail(ResponseEnums responseEnums) {
+    public static BaseResponse fail(int code, String message) {
+        return new BaseResponse<>(code, message, null);
+    }
+
+    public static <T> BaseResponse<T> fail(ResponseEnums responseEnums) {
         return new BaseResponse<>(responseEnums.getCode(), responseEnums.getMessage(), null);
     }
 

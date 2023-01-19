@@ -6,10 +6,12 @@ import lombok.Data;
 import javax.validation.constraints.NotBlank;
 
 @Data
-public class UserInfoRequest {
+public class UpdateUserInfoRequest {
 
     @NotBlank
-    @JsonProperty("userName")
-    private String userName;
+    @JsonProperty("userId")
+    private String userId;
 
+    @JsonProperty("phone")
+    private String phone;
 }

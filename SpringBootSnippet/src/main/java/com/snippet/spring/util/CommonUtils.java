@@ -1,5 +1,15 @@
-@Slf4j
+package com.snippet.spring.util;
+
+import org.apache.commons.lang3.StringUtils;
+
 public class CommonUtils {
+
+    /**
+     * sneak to camel
+     *
+     * @param name sneak field
+     * @return camel field
+     */
     public static String camelName(String name) {
         StringBuilder result = new StringBuilder();
         if (StringUtils.isBlank(name)) {
@@ -15,7 +25,6 @@ public class CommonUtils {
             if (result.length() == 0) {
                 result.append(camel.toLowerCase());
             } else {
-                // 其他的驼峰片段，首字母大写
                 result.append(camel.substring(0, 1).toUpperCase());
                 result.append(camel.substring(1).toLowerCase());
             }

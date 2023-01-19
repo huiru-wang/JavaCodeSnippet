@@ -9,11 +9,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @Slf4j
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/api/hello")
 public class HelloController {
 
 
-    @GetMapping("/hello")
+    @GetMapping("")
     public BaseResponse<String> hello() {
         return ResponseUtil.success("hello");
     }

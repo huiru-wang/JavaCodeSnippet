@@ -1,30 +1,31 @@
 package com.snippet.spring.controller;
 
-import cn.hutool.core.lang.Assert;
 import com.snippet.spring.dao.entity.User;
-import com.snippet.spring.dao.mapper.UserMapper;
 import com.snippet.spring.model.BaseResponse;
+import com.snippet.spring.model.request.UpdateUserInfoRequest;
+import com.snippet.spring.service.UserService;
 import com.snippet.spring.util.ResponseUtil;
+import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import javax.servlet.http.HttpServletRequest;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/user")
 public class UserController {
 
     @Autowired
-    private UserMapper userMapper;
+    private UserService userService;
 
     @GetMapping("/info")
-    public BaseResponse<User> getUserInfo(HttpServletRequest request) {
-        String username = request.getParameter("username");
-        Assert.notBlank(username, "username is blank");
-        User user = userMapper.selectByUserName(username);
-        user.setPassword(null);
+    public BaseResponse<User> getUserInfo(@RequestParam @NonNull String username) {
+        User user = userService.getUserByUserName(username);
+        return ResponseUtil.success(user);
+    }
+
+    @PostMapping("/update")
+    public BaseResponse<User> editUserInfo(@RequestBody @Validated UpdateUserInfoRequest request) {
+        User user = userService.updateUserInfo(request);
         return ResponseUtil.success(user);
     }
 }

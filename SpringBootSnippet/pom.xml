@@ -41,6 +41,11 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!--====================  aop  =====================-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
         <!--====================  hibernate-validator  =====================-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -51,7 +56,12 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
         </dependency>
-
+        <!--====================  log4j2  =====================-->
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
+            <version>1.2.83</version>
+        </dependency>
         <!--================== mybatis mysql ==================-->
         <dependency>
             <groupId>org.mybatis.spring.boot</groupId>
@@ -85,6 +95,20 @@
             <artifactId>hutool-all</artifactId>
             <version>${hutool.version}</version>
         </dependency>
+
+        <!--================== apache commons-lang3 ==================-->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.12.0</version>
+        </dependency>
+        <!--================== java-jwt ==================-->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.18.3</version>
+        </dependency>
+
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

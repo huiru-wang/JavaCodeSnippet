@@ -1,4 +1,4 @@
-package com.snippet.spring.common;
+package com.snippet.spring.common.enums;
 
 import lombok.Getter;
 
@@ -6,7 +6,7 @@ import lombok.Getter;
 public enum ResponseEnums {
 
     SUCCESS(0, "success"),
-    PARAM_INVALID(-1, "param invalid");
+    PARAM_INVALID(10001, "param invalid");
 
     private final Integer code;
 
