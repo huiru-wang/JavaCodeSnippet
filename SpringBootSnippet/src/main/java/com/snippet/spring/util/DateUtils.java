@@ -1,6 +1,24 @@
-public class DateUtils{
-  public static final String DEFAULT_FMT = "yyyy-MM-dd HH:mm:ss";
-     public static String getUtcDateStr(@NonNull String dateStr) {
+package com.snippet.spring.util;
+
+import lombok.NonNull;
+import org.apache.commons.lang3.StringUtils;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
+public class DateUtils {
+    public static final String MILLSECOND_FMT = "yyyy-MM-dd HH:mm:ss.SSSSSS";
+    public static final String DEFAULT_FMT = "yyyy-MM-dd HH:mm:ss";
+
+    /**
+     * 转utc时间字符串
+     *
+     * @param dateStr 时间字符串:yyyy-MM-dd HH:mm:ss
+     * @return utc时间字符串
+     */
+    public static String getUtcDateStr(@NonNull String dateStr) {
         if (StringUtils.isBlank(dateStr)) {
             return "";
         }
@@ -9,7 +27,8 @@ public class DateUtils{
         try {
             localDate = simpleDateFormat.parse(dateStr);
         } catch (ParseException e) {
-            throw new IllegalArgumentException("illegal date format");
+            String msg = String.format("parse date str fail, dateStr:%s", dateStr);
+            throw new IllegalArgumentException("illegal date format: " + msg);
         }
         long time = localDate.getTime();
         Calendar calendar = Calendar.getInstance();
@@ -18,7 +37,8 @@ public class DateUtils{
         int dstOffset = calendar.get(Calendar.DST_OFFSET);
         calendar.add(Calendar.MILLISECOND, -(zoneOffset + dstOffset));
         Date utcDate = new Date(calendar.getTimeInMillis());
+
         return simpleDateFormat.format(utcDate);
-    } 
-  
+    }
+
 }
