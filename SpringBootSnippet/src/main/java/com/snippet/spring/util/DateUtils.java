@@ -3,11 +3,22 @@ package com.snippet.spring.util;
 import lombok.NonNull;
 import org.apache.commons.lang3.StringUtils;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDateTime;
+import java.time.ZoneId;
+import java.time.ZonedDateTime;
+import java.time.format.DateTimeFormatter;
 
+/**
+ * 时间工具类
+ * <br/>
+ * 推荐使用：<br/>
+ * - 本地时间类：LocalDateTime<br/>
+ * - 格式化时间类：DateTimeFormatter<br/>
+ * <br/>
+ * 与MySql时间相对应：datetime <--> LocalDateTime
+ * <br/>
+ * SimpleDateFormat线程不安全，不推荐使用
+ */
 public class DateUtils {
     public static final String MILLSECOND_FMT = "yyyy-MM-dd HH:mm:ss.SSSSSS";
     public static final String DEFAULT_FMT = "yyyy-MM-dd HH:mm:ss";
@@ -22,23 +33,12 @@ public class DateUtils {
         if (StringUtils.isBlank(dateStr)) {
             return "";
         }
-        Date localDate;
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DEFAULT_FMT);
-        try {
-            localDate = simpleDateFormat.parse(dateStr);
-        } catch (ParseException e) {
-            String msg = String.format("parse date str fail, dateStr:%s", dateStr);
-            throw new IllegalArgumentException("illegal date format: " + msg);
-        }
-        long time = localDate.getTime();
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTimeInMillis(time);
-        int zoneOffset = calendar.get(Calendar.ZONE_OFFSET);
-        int dstOffset = calendar.get(Calendar.DST_OFFSET);
-        calendar.add(Calendar.MILLISECOND, -(zoneOffset + dstOffset));
-        Date utcDate = new Date(calendar.getTimeInMillis());
-
-        return simpleDateFormat.format(utcDate);
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(DEFAULT_FMT);
+        LocalDateTime localDate = LocalDateTime.parse(dateStr, dateTimeFormatter);
+        ZonedDateTime defaultZoneTime = localDate.atZone(ZoneId.systemDefault());
+        ZonedDateTime utcDateTime = defaultZoneTime.withZoneSameInstant(ZoneId.of("UTC"));
+        String utcDateTimeStr = utcDateTime.toString();
+        // TODO 处理字符串格式
+        return utcDateTimeStr.replaceAll("r([A-Z|\\]|\\[])", " ").trim();
     }
-
 }
