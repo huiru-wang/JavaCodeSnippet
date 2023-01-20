@@ -85,7 +85,7 @@
         <root level="info">
             <AppenderRef ref="Console"/>
         </root>
-        <AsyncLogger name="com.snippet.spring.controller" level="info" additivity="false">
+        <AsyncLogger name="com.snippet.spring.aop.InterfaceLogAspect" level="info" additivity="false">
             <AppenderRef ref="InterfaceLog"/>
         </AsyncLogger>
         <AsyncLogger name="com.snippet.spring" level="info" additivity="false">
