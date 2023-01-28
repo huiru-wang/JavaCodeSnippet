@@ -9,6 +9,10 @@ public class ResponseUtil {
         return new BaseResponse<>(code, message, data);
     }
 
+    public static <T> BaseResponse<T> success() {
+        return new BaseResponse<>(ResponseEnums.SUCCESS.getCode(), ResponseEnums.SUCCESS.getMessage(), null);
+    }
+
     public static <T> BaseResponse<T> success(T data) {
         return new BaseResponse<>(ResponseEnums.SUCCESS.getCode(), ResponseEnums.SUCCESS.getMessage(), data);
     }

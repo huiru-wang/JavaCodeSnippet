@@ -18,7 +18,7 @@ import java.time.Duration;
 @Configuration
 public class RedisConfig {
 
-    @Value("${spring.redis.host:host.ubuntu.wsl}")
+    @Value("${spring.redis.host:ubuntu.wsl}")
     private String host;
 
     @Value("${spring.redis.port:6379}")

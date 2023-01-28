@@ -30,6 +30,8 @@ public class InterfaceLog {
     public String toString() {
         StringBuilder interfaceLog = new StringBuilder();
         interfaceLog.append(Constants.Separator.VERTICAL_LINE)
+                .append(Constants.TRACE_ID)
+                .append(":")
                 .append(MDC.get(Constants.TRACE_ID))
                 .append(Constants.Separator.VERTICAL_LINE)
                 .append(this.ip)

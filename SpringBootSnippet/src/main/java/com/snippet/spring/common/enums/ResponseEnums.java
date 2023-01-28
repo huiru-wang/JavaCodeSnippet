@@ -6,7 +6,11 @@ import lombok.Getter;
 public enum ResponseEnums {
 
     SUCCESS(0, "success"),
-    PARAM_INVALID(10001, "param invalid");
+    PARAM_INVALID(10001, "param invalid"),
+
+    // 用户相关
+    USER_INFO_UPDATE_FAIL(20001, "user info update fail"),
+    ;
 
     private final Integer code;
 

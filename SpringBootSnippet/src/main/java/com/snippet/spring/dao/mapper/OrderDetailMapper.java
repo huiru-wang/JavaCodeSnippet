@@ -1,6 +1,6 @@
 package com.snippet.spring.dao.mapper;
 
-import com.snippet.spring.dao.entity.User;
+import com.snippet.spring.dao.entity.OrderDetail;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -13,6 +13,6 @@ import org.apache.ibatis.annotations.Mapper;
  * @since 2023-01-28 07:36:04
  */
 @Mapper
-public interface UserMapper extends BaseMapper<User> {
+public interface OrderDetailMapper extends BaseMapper<OrderDetail> {
 
 }

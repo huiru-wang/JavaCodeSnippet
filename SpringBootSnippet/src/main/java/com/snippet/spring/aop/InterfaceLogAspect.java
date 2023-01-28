@@ -21,6 +21,13 @@ import javax.servlet.http.HttpServletRequest;
 @Component
 public class InterfaceLogAspect {
 
+    /**
+     * execution内就是一个正则匹配的方法声明
+     * public：限定public方法
+     * *：任意返回类型
+     * com.snippet.spring.controller.*：指定此包下任意类
+     * .*(..)：任意方法、任意参数
+     */
     @Pointcut("execution(public * com.snippet.spring.controller.*.*(..))")
     public void interfaceLog() {
     }

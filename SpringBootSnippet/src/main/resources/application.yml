@@ -9,23 +9,26 @@ spring:
     driver-class-name: com.mysql.cj.jdbc.Driver
     username: will
     password: will
-    url: jdbc:mysql://host.ubuntu.wsl:3306/snippet?useUnicode=true&characterEncoding=utf-8&userSSL=false
+    url: jdbc:mysql://ubuntu.wsl:3306/snippet?useUnicode=true&characterEncoding=utf-8&userSSL=false
     hikari:
       minimum-idle: 10
       maximum-pool-size: 20
       pool-name: wsl-datasource
       connection-timeout: 10000
   redis:
-    host: host.ubuntu.wsl
+    host: ubuntu.wsl
     port: 6379
     password: 123456
     database: 0
     connect-timeout: 1000
-mybatis:
-  mapper-locations: classpath:mappers/*.xml
 logging:
   config: classpath:log4j2.xml
-  
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # sql语句打印
+  global-config:
+    db-config:
+      logic-delete-value: 0
+      logic-not-delete-value: 1
+    banner: false
+  mapper-locations: classpath:mapper/*.xml

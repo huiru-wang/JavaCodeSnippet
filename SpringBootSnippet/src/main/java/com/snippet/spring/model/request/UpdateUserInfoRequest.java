@@ -10,7 +10,7 @@ public class UpdateUserInfoRequest {
 
     @NotBlank
     @JsonProperty("userId")
-    private String userId;
+    private Long userId;
 
     @JsonProperty("phone")
     private String phone;

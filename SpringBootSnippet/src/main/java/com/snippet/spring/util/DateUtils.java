@@ -3,10 +3,12 @@ package com.snippet.spring.util;
 import lombok.NonNull;
 import org.apache.commons.lang3.StringUtils;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 
 /**
  * 时间工具类
@@ -38,9 +40,9 @@ public class DateUtils {
         ZonedDateTime defaultZoneTime = localDate.atZone(ZoneId.systemDefault());
         ZonedDateTime utcDateTime = defaultZoneTime.withZoneSameInstant(ZoneId.of("UTC"));
         String utcDateTimeStr = utcDateTime.toString();
-        utcDateTimeStr.replaceAll("[^0-9:-]", " ").trim(); // 替换掉非数字:-
+        return utcDateTimeStr.replaceAll("[^0-9:-]", " ").trim(); // 替换掉非数字:-
     }
-    
+
     /**
      * 时间戳转 时间字符串
      *

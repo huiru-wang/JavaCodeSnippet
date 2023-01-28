@@ -5,7 +5,6 @@ import com.snippet.spring.common.constants.Constants;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.MDC;
-import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,7 +15,6 @@ import javax.servlet.http.HttpServletResponse;
  * 增加服务间的 trace id 追踪全链路日志
  */
 @Slf4j
-@Component
 public class LogInterceptor implements HandlerInterceptor {
 
     @Override

@@ -1,19 +1,18 @@
 package com.snippet.spring.dao.mapper;
 
 import com.snippet.spring.dao.entity.Product;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
 
+/**
+ * <p>
+ *  Mapper 接口
+ * </p>
+ *
+ * @author will
+ * @since 2023-01-28 07:36:04
+ */
 @Mapper
-public interface ProductMapper {
-    int deleteByPrimaryKey(Long id);
+public interface ProductMapper extends BaseMapper<Product> {
 
-    int insert(Product row);
-
-    int insertSelective(Product row);
-
-    Product selectByPrimaryKey(Long id);
-
-    int updateByPrimaryKeySelective(Product row);
-
-    int updateByPrimaryKey(Product row);
 }

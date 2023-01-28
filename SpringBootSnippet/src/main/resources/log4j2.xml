@@ -17,11 +17,11 @@
         <property name="LOG_BACKUP_PATH">${LOG_PATH}/backup</property>
         <!--日志格式-->
         <property name="PATTERN">
-            %highlight{%d{yyyy-MM-dd HH:mm:ss.SSS}|%blue{${sys:PID}}|%yellow{%thread}|%cyan{%level}: %msg%n}{ERROR=red,
+            %highlight{%d{yyyy-MM-dd HH:mm:ss.SSS}|%blue{${sys:PID}}|%yellow{%thread}|%cyan{%level}|%msg%n}{ERROR=red,
             WARN=bg_#5792e6 fg_#eef26b bold, INFO=black, DEBUG=#3fe0a8, TRACE=blue}
         </property>
         <property name="FILE_PATTERN">
-            %highlight{%d{yyyy-MM-dd HH:mm:ss.SSS}|${sys:PID}|%thread|%level: %msg%n}{ERROR=red,
+            %highlight{%d{yyyy-MM-dd HH:mm:ss.SSS}|${sys:PID}|%thread|%level|%msg%n}{ERROR=red,
             WARN=bg_#5792e6 fg_#eef26b bold, INFO=black, DEBUG=#3fe0a8, TRACE=blue}
         </property>
     </Properties>
