@@ -38,7 +38,6 @@ public class DateUtils {
         ZonedDateTime defaultZoneTime = localDate.atZone(ZoneId.systemDefault());
         ZonedDateTime utcDateTime = defaultZoneTime.withZoneSameInstant(ZoneId.of("UTC"));
         String utcDateTimeStr = utcDateTime.toString();
-        // TODO 处理字符串格式
-        return utcDateTimeStr.replaceAll("r([A-Z|\\]|\\[])", " ").trim();
+        utcDateTimeStr.replaceAll("[^0-9:-]", " ").trim(); // 替换掉非数字:-
     }
 }
