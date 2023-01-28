@@ -25,3 +25,7 @@ mybatis:
   mapper-locations: classpath:mappers/*.xml
 logging:
   config: classpath:log4j2.xml
+  
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # sql语句打印
