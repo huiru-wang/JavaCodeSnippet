@@ -25,10 +25,6 @@ public class CodeGenerator {
 
     String author = "will";
 
-    String parent = "com";
-
-    String module = "example.demo";
-
     List<String> tableNames = Lists.newArrayList("t_user", "t_award_check_record");
 
     @Test
@@ -42,8 +38,8 @@ public class CodeGenerator {
                 .disableOpenDir();
         }).packageConfig(packageConfigBuilder -> {
             // =============== package ===============
-            packageConfigBuilder.parent(parent)
-                .moduleName(module)
+            packageConfigBuilder.parent("com.snippet.spring") // 父目录
+                .moduleName("") // module
                 .entity("dao.entity")
                 .service("service")
                 .serviceImpl("service.impl")
