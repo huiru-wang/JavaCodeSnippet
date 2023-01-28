@@ -40,4 +40,32 @@ public class DateUtils {
         String utcDateTimeStr = utcDateTime.toString();
         utcDateTimeStr.replaceAll("[^0-9:-]", " ").trim(); // 替换掉非数字:-
     }
+    
+    /**
+     * 时间戳转 时间字符串
+     *
+     * @param timeStamp 时间戳
+     * @return 时间字符串
+     */
+    public static String timestampToDateStr(Long timeStamp) {
+        if (Objects.isNull(timeStamp)) {
+            return "";
+        }
+        Instant instant = Instant.ofEpochMilli(timeStamp);
+        LocalDateTime localDateTime = LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+        return format(localDateTime);
+    }
+
+    public static String format(LocalDateTime localDateTime, String fmt) {
+        if (StringUtils.isBlank(fmt)) {
+            return format(localDateTime);
+        }
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(DEFAULT_FMT);
+        return localDateTime.format(dateTimeFormatter);
+    }
+
+    public static String format(LocalDateTime localDateTime) {
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(DEFAULT_FMT);
+        return localDateTime.format(dateTimeFormatter);
+    }
 }
