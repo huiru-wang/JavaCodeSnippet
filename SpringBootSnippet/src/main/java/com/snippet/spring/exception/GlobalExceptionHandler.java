@@ -3,7 +3,9 @@ package com.snippet.spring.exception;
 import com.snippet.spring.common.enums.ResponseEnums;
 import com.snippet.spring.model.BaseResponse;
 import com.snippet.spring.util.ResponseUtil;
+
 import lombok.extern.slf4j.Slf4j;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -15,11 +17,21 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import java.util.List;
-
+/**
+ * 异常流顺序：
+ * 方法抛出ex --> aop@AfterThrowing可处理异常 --> @RestControllerAdvice --> interceptor.afterCompletion()方法处理
+ */
 @Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+    
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    @ExceptionHandler(BusinessException.class)
+    public BaseResponse handleBusinessException(BusinessException e) {
 
+        return ResponseUtil.fail(e.getCode(), e.getMessage());
+    }
+    
     /**
      * 处理参数异常
      *
