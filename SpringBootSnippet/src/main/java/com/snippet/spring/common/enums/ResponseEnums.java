@@ -7,7 +7,7 @@ public enum ResponseEnums {
 
     SUCCESS(0, "success"),
     PARAM_INVALID(10001, "param invalid"),
-
+AUTHENTICATION_FAIL(10010, "authentication fail"),
     // 用户相关
     USER_INFO_UPDATE_FAIL(20001, "user info update fail"),
     ;
