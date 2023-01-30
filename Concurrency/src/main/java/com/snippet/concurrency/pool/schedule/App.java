@@ -13,6 +13,5 @@ public class App {
         ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(1, Integer.MAX_VALUE, 10L, MILLISECONDS, new DelayQueue());
 
         DelayQueue<Delayed> queue = new DelayQueue<>();
-        queue.add()
     }
 }
