@@ -35,7 +35,8 @@ public class GlobalConfig {
     public Validator validator() {
         return Validation.byProvider(HibernateValidator.class)
                 .configure()
-                .failFast(true)
+                //.failFast( true )
+                .addProperty("hibernate.validator.fail_fast", "true")
                 .buildValidatorFactory()
                 .getValidator();
     }
