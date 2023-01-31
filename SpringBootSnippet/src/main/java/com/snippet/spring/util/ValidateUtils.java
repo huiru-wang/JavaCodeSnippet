@@ -7,8 +7,13 @@ import java.util.Set;
 public class ValidateUtils {
 
     private static final Validator validator;
+
     static {
-         validator = Validation.buildDefaultValidatorFactory().getValidator();
+        validator = Validation.byProvider(HibernateValidator.class)
+            .configure()
+            .failFast(true) // 快速失败
+            .buildValidatorFactory()
+            .getValidator();
     }
 
     public static <T> void validateWithException(T obj){
