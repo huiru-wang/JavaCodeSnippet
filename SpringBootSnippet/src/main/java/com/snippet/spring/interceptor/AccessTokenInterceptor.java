@@ -1,10 +1,17 @@
 package com.snippet.spring.interceptor;
 
+import cn.hutool.jwt.JWT;
+import cn.hutool.jwt.JWTPayload;
+import cn.hutool.jwt.JWTUtil;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.util.Assert;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+@Slf4j
 public class AccessTokenInterceptor implements HandlerInterceptor {
     @Value("${jwt.private.key}")
     private String jwtPrivateKey;
@@ -17,7 +24,7 @@ public class AccessTokenInterceptor implements HandlerInterceptor {
         String[] value = authorization.split(" ");
         Assert.isTrue(value.length > 1, "Invalid Authorization");
         String token = value[1];
-        boolean res = JWTUtil.verify(token, jwtSecret.getBytes());
+        boolean res = JWTUtil.verify(token, jwtPrivateKey.getBytes());
         if (!res) {
             log.warn("Verify JWT fail");
             return false;

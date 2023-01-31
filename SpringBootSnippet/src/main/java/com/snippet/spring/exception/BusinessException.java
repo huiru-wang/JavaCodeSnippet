@@ -1,5 +1,6 @@
 package com.snippet.spring.exception;
 
+import com.snippet.spring.common.enums.ResponseEnums;
 import lombok.Getter;
 
 @Getter
@@ -11,7 +12,7 @@ public class BusinessException extends RuntimeException {
         super(message);
         this.code = code;
     }
-    
+
     public BusinessException(ResponseEnums responseEnums) {
         super(responseEnums.getMessage());
         this.code = responseEnums.getCode();

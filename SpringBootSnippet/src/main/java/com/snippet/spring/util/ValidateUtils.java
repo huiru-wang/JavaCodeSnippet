@@ -1,7 +1,12 @@
 package com.snippet.spring.util;
 
 
-import javax.validation.*;
+import org.hibernate.validator.HibernateValidator;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.Validation;
+import javax.validation.ValidationException;
+import javax.validation.Validator;
 import java.util.Set;
 
 public class ValidateUtils {
@@ -10,19 +15,19 @@ public class ValidateUtils {
 
     static {
         validator = Validation.byProvider(HibernateValidator.class)
-            .configure()
-            .failFast(true) // 快速失败
-            .buildValidatorFactory()
-            .getValidator();
+                .configure()
+                .failFast(true) // 快速失败
+                .buildValidatorFactory()
+                .getValidator();
     }
 
-    public static <T> void validateWithException(T obj){
+    public static <T> void validateWithException(T obj) {
         Set<ConstraintViolation<T>> constraintViolations = validator.validate(obj);
         if (constraintViolations.isEmpty()) {
             return;
         }
         StringBuffer sb = new StringBuffer();
-        constraintViolations.forEach(constraintViolation->{
+        constraintViolations.forEach(constraintViolation -> {
             String field = constraintViolation.getPropertyPath().toString();
             String message = constraintViolation.getMessage();
             String msg = String.format("[%s]: %s", field, message);
@@ -32,7 +37,7 @@ public class ValidateUtils {
         throw new ValidationException(sb.toString());
     }
 
-    public static <T> boolean validate(T obj){
+    public static <T> boolean validate(T obj) {
         Set<ConstraintViolation<T>> constraintViolations = validator.validate(obj);
         return constraintViolations.isEmpty();
     }
