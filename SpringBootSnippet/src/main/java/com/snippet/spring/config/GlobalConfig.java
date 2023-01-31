@@ -40,7 +40,7 @@ public class GlobalConfig {
                 .buildValidatorFactory()
                 .getValidator();
     }
-
+    // https://blog.csdn.net/GeAhardaharvest/article/details/124252766
     /**
      * 配置Spring序列化响应时策略
      *
