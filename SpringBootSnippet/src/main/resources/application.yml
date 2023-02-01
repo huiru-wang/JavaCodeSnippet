@@ -1,9 +1,8 @@
-# =============进程=============
 server:
-  port: 8080
+  port: 9090
 
 spring:
-  # =============datasource=============
+  # =============DataSource=============
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -15,6 +14,7 @@ spring:
       maximum-pool-size: 20
       pool-name: wsl-datasource
       connection-timeout: 10000
+  # =============Redis=============
   redis:
     host: ubuntu.wsl
     port: 6379
@@ -28,6 +28,14 @@ spring:
         max-idle: 10
         min-idle: 10
         max-wait: 1000ms
+  # =============Spring-Cache=============
+  cache:
+    type: redis # 指定缓存组件,Redis默认使用RedisTemplate客户端,需要配置序列化
+    redis:
+      key-prefix: snippet_
+      use-key-prefix: true
+      cache-null-values: true # 允许null值，防穿透
+      time-to-live: 36000000 # 过期时间
 logging:
   config: classpath:log4j2.xml
 mybatis-plus:
