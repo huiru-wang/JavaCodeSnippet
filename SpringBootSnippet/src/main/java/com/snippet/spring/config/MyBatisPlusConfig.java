@@ -12,4 +12,14 @@ public class MyBatisPlusConfig {
     public EasySqlInjector easySqlInjector() {
         return new EasySqlInjector();
     }
+    
+    /**
+     * 分页插件
+     */
+    @Bean
+    public MybatisPlusInterceptor paginationInterceptor() {
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
+        return interceptor;
+    }
 }
