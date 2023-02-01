@@ -7,7 +7,7 @@ import com.snippet.spring.dao.entity.User;
 import com.snippet.spring.model.BaseResponse;
 import com.snippet.spring.model.request.UpdateUserInfoRequest;
 import com.snippet.spring.service.UserService;
-import com.snippet.spring.util.ResponseUtil;
+import com.snippet.spring.util.ResponseUtils;
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,7 +35,7 @@ public class UserController {
         queryParam.setUsername(username);
         User user = userService.getOne(new QueryWrapper<>(queryParam));
         user.setPassword(null);
-        return ResponseUtil.success(user);
+        return ResponseUtils.ok(user);
     }
 
     @AccessToken
@@ -44,6 +44,6 @@ public class UserController {
         User queryParam = new User();
         queryParam.setId(request.getUserId());
         boolean res = userService.updateById(queryParam);
-        return res ? ResponseUtil.success() : ResponseUtil.fail(ResponseEnums.USER_INFO_UPDATE_FAIL);
+        return res ? ResponseUtils.ok() : ResponseUtils.fail(ResponseEnums.USER_INFO_UPDATE_FAIL);
     }
 }

@@ -4,7 +4,7 @@ import com.snippet.spring.aop.annotation.AccessToken;
 import com.snippet.spring.dao.entity.Order;
 import com.snippet.spring.model.BaseResponse;
 import com.snippet.spring.service.OrderService;
-import com.snippet.spring.util.ResponseUtil;
+import com.snippet.spring.util.ResponseUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,7 +34,7 @@ public class OrderController {
     @GetMapping("/export")
     public BaseResponse<Order> export(HttpServletRequest request,
                                       HttpServletResponse httpServletResponse) {
-       
-        return ResponseUtil.success();
+
+        return ResponseUtils.ok();
     }
 }

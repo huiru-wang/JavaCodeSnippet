@@ -1,21 +1,22 @@
 package com.snippet.spring.config;
 
-import org.apache.commons.pool2.impl.GenericObjectPoolConfig;
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.redis.connection.RedisStandaloneConfiguration;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
-import org.springframework.data.redis.connection.lettuce.LettucePoolingClientConfiguration;
-import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.core.*;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
 
-import java.time.Duration;
 
-
-@EnableCaching // 开启Spring-Cache
 @Configuration
 public class RedisConfig {
 
@@ -60,7 +61,7 @@ public class RedisConfig {
         template.setConnectionFactory(lettuceConnectionFactory);
         return template;
     }
-    
+
     @Bean
     public HashOperations<String, String, Object> hashOperations(StringRedisTemplate stringRedisTemplate) {
         return stringRedisTemplate.opsForHash();

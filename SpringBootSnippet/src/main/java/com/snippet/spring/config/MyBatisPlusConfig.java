@@ -1,5 +1,8 @@
 package com.snippet.spring.config;
 
+import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
+import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -12,7 +15,7 @@ public class MyBatisPlusConfig {
     public EasySqlInjector easySqlInjector() {
         return new EasySqlInjector();
     }
-    
+
     /**
      * 分页插件
      */

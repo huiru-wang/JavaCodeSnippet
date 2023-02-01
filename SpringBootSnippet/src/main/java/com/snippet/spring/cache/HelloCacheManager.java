@@ -1,4 +1,4 @@
-package com.snippet.spring.service.cache;
+package com.snippet.spring.cache;
 
 import com.snippet.spring.model.NestingObj;
 import com.snippet.spring.model.UserCache;
@@ -13,15 +13,15 @@ import org.springframework.stereotype.Service;
 @Service
 public class HelloCacheManager {
 
-    @Cacheable(key = "#key",value = "cache_demo")
-    public UserCache cache(String key){
+    @Cacheable(key = "#key", value = "cache_demo")
+    public UserCache cache(String key) {
         UserCache userCache = new UserCache();
         userCache.setUsername("ddd");
         userCache.setNestingObj(new NestingObj());
         return userCache;
     }
 
-    @CacheEvict(key = "#key",value = "cache_demo")
-    public void invalidCache(String key){
+    @CacheEvict(key = "#key", value = "cache_demo")
+    public void invalidCache(String key) {
     }
 }

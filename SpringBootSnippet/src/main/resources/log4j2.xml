@@ -78,6 +78,17 @@
             <DefaultRolloverStrategy max="30"/>
         </RollingFile>
 
+        <RollingFile name="MQLog" fileName="${LOG_PATH}/mq.log"
+                     filePattern="${LOG_BACKUP_PATH}/$${date:yyyy-MM}/mq-%d{yyyy-MM-dd}_%i.log.zip"
+                     bufferSize="8192">
+            <PatternLayout charset="UTF-8" pattern="${FILE_PATTERN}"/>
+            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="50MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
     </Appenders>
 
     <!--==============指定路径下使用的Appender==============-->
@@ -93,6 +104,9 @@
         </AsyncLogger>
         <AsyncLogger name="org.mybatis" level="debug" additivity="false">
             <AppenderRef ref="MybatisLog"/>
+        </AsyncLogger>
+        <AsyncLogger name="org.apache.kafka" level="info" additivity="false">
+            <AppenderRef ref="MQLog"/>
         </AsyncLogger>
     </Loggers>
 </Configuration>
