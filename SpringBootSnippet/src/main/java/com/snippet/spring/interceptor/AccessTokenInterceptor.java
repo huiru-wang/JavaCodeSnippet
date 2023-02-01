@@ -10,7 +10,11 @@ import org.springframework.web.servlet.HandlerInterceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
+/**
+ * 保持登录逻辑：
+ * 1、没有token/token过期/token不合法，跳转登录
+ * 2、token校验通过，续费时长
+ */
 @Slf4j
 public class AccessTokenInterceptor implements HandlerInterceptor {
     @Value("${jwt.private.key}")
