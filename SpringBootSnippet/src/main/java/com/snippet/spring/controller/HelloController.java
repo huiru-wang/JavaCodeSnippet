@@ -17,6 +17,9 @@ public class HelloController {
     public BaseResponse<String> hello() {
         return ResponseUtil.success("hello");
     }
+    
+    @Autowired
+    HelloCacheManager helloCacheManager;
 
     @GetMapping("/valid")
     public BaseResponse<UserCache> helloCache(@Valid @NotBlank @RequestParam String username) {
