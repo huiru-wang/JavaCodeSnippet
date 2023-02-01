@@ -32,33 +32,35 @@ public class RedisConfig {
     @Value("${spring.redis.connect-timeout:1000}")
     private int timeout;
 
+    @Autowired
+    LettuceConnectionFactory lettuceConnectionFactory;
+
     @Bean
-    public StringRedisTemplate stringRedisTemplate() {
-        StringRedisTemplate stringRedisTemplate = new StringRedisTemplate();
+    public RedisTemplate<String, Object> redisTemplate() {
+        RedisTemplate<String, Object> template = new RedisTemplate<String, Object>();
 
-        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration();
-        redisStandaloneConfiguration.setHostName(host);
-        redisStandaloneConfiguration.setPassword(password);
-        redisStandaloneConfiguration.setPort(port);
-        redisStandaloneConfiguration.setDatabase(database);
+        Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<Object>(Object.class);
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
+        // 序列化对象非final
+        // LaissezFaireSubTypeValidator.instance: 序列化同时 保存类名，用于返序列化
+        objectMapper.activateDefaultTyping(objectMapper.getPolymorphicTypeValidator(),
+                ObjectMapper.DefaultTyping.NON_FINAL,
+                JsonTypeInfo.As.PROPERTY);
 
-        GenericObjectPoolConfig<Object> genericObjectPoolConfig = new GenericObjectPoolConfig<>();
-        genericObjectPoolConfig.setMaxTotal(24);
-        genericObjectPoolConfig.setMaxIdle(20);
-        genericObjectPoolConfig.setMinIdle(10);
-        genericObjectPoolConfig.setMaxWait(Duration.ofMillis(timeout));
+        // value serializer
+        jackson2JsonRedisSerializer.setObjectMapper(objectMapper);
+        // value serializer
+        template.setValueSerializer(jackson2JsonRedisSerializer);
 
-        LettucePoolingClientConfiguration poolingClientConfiguration = LettucePoolingClientConfiguration.builder()
-                .commandTimeout(Duration.ofMillis(1000))
-                .poolConfig(genericObjectPoolConfig)
-                .build();
+        // key serializer
+        StringRedisSerializer stringRedisSerializer = new StringRedisSerializer();
+        template.setKeySerializer(stringRedisSerializer);
 
-        LettuceConnectionFactory lettuceConnectionFactory = new LettuceConnectionFactory(redisStandaloneConfiguration, poolingClientConfiguration);
-
-        stringRedisTemplate.setConnectionFactory(lettuceConnectionFactory);
-        return stringRedisTemplate;
+        template.setConnectionFactory(lettuceConnectionFactory);
+        return template;
     }
-
+    
     @Bean
     public HashOperations<String, String, Object> hashOperations(StringRedisTemplate stringRedisTemplate) {
         return stringRedisTemplate.opsForHash();
