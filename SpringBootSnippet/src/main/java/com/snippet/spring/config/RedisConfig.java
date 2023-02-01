@@ -15,6 +15,7 @@ import org.springframework.data.redis.core.StringRedisTemplate;
 import java.time.Duration;
 
 
+@EnableCaching // 开启Spring-Cache
 @Configuration
 public class RedisConfig {
 
@@ -59,15 +60,29 @@ public class RedisConfig {
     }
 
     @Bean
-    public GenericObjectPoolConfig genericObjectPoolConfig() {
-
-        GenericObjectPoolConfig genericObjectPoolConfig = new GenericObjectPoolConfig();
-        genericObjectPoolConfig.setMaxTotal(24);
-        genericObjectPoolConfig.setMinIdle(10);
-        genericObjectPoolConfig.setMaxWait(Duration.ofMillis(5000));
-        return genericObjectPoolConfig;
+    public HashOperations<String, String, Object> hashOperations(StringRedisTemplate stringRedisTemplate) {
+        return stringRedisTemplate.opsForHash();
     }
 
+    @Bean
+    public ValueOperations<String, String> valueOperations(StringRedisTemplate stringRedisTemplate) {
+        return stringRedisTemplate.opsForValue();
+    }
+
+    @Bean
+    public ListOperations<String, String> listOperations(StringRedisTemplate stringRedisTemplate) {
+        return stringRedisTemplate.opsForList();
+    }
+
+    @Bean
+    public SetOperations<String, String> setOperations(StringRedisTemplate stringRedisTemplate) {
+        return stringRedisTemplate.opsForSet();
+    }
+
+    @Bean
+    public ZSetOperations<String, String> zSetOperations(StringRedisTemplate stringRedisTemplate) {
+        return stringRedisTemplate.opsForZSet();
+    }
 
     @Bean
     public RedissonClient redissonClient() {
