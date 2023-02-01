@@ -18,5 +18,14 @@ public class HelloController {
         return ResponseUtil.success("hello");
     }
 
+    @GetMapping("/valid")
+    public BaseResponse<UserCache> helloCache(@Valid @NotBlank @RequestParam String username) {
+        return ResponseUtils.success(helloCacheManager.cache(username));
+    }
 
+    @GetMapping("/invalidCache")
+    public BaseResponse<UserCache> helloInvalidCache(@Valid @NotBlank @RequestParam String username) {
+        helloCacheManager.invalidCache(username);
+        return ResponseUtils.success();
+    }
 }
