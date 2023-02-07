@@ -7,6 +7,8 @@ import com.snippet.spring.model.BaseResponse;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -23,9 +25,13 @@ import java.util.concurrent.CountDownLatch;
  * https://tanzu.vmware.com/developer/guides/spring-webclient-gs/
  * create by whr on 2023/2/7
  */
+@SpringBootTest
 public class WebClientTest {
 
     private static final Logger log = LoggerFactory.getLogger(WebClientTest.class);
+
+    @Autowired
+    WebClient webClient;
 
     @Test
     public void simple_sync_get() {
@@ -44,7 +50,6 @@ public class WebClientTest {
         final MultiValueMap<String, String> formData = new LinkedMultiValueMap<>();
         formData.add("username", "will");
 
-        WebClient webClient = WebClient.create();
         String result = webClient
                 .post()
                 .uri("http://localhost:9090/api/hello/post")

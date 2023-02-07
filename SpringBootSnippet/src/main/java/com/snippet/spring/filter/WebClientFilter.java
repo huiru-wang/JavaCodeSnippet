@@ -2,13 +2,14 @@ package com.snippet.spring.filter;
 
 import com.snippet.spring.exception.BusinessException;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.reactive.function.client.ClientRequest;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import reactor.core.publisher.Mono;
 
 /**
  * create by whr on 2023/2/8
  */
-public class ErrorResponseFilter {
+public class WebClientFilter {
 
     public static Mono<ClientResponse> exchangeFilterResponseProcessor(ClientResponse response) {
         HttpStatus status = response.statusCode();
@@ -23,4 +24,7 @@ public class ErrorResponseFilter {
         return Mono.just(response);
     }
 
+    public static Mono<ClientRequest> exchangeFilterResponseProcessor(ClientRequest clientRequest) {
+        return null;
+    }
 }
