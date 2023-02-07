@@ -4,10 +4,12 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.github.benmanes.caffeine.cache.Caffeine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
+import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,13 +32,13 @@ import java.time.Duration;
  */
 @EnableCaching
 @Configuration
-public class CacheManagerConfig extends CachingConfigurerSupport{
+public class CacheManagerConfig extends CachingConfigurerSupport {
     @Autowired
     LettuceConnectionFactory lettuceConnectionFactory;
 
     @Bean("redisCacheManager")
     @Override
-    public CacheManager cacheManager(){
+    public CacheManager cacheManager() {
         Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<Object>(Object.class);
         ObjectMapper objectMapper = new ObjectMapper();
         objectMapper.setVisibility(PropertyAccessor.ALL, JsonAutoDetect.Visibility.ANY);
@@ -54,7 +56,7 @@ public class CacheManagerConfig extends CachingConfigurerSupport{
                 .cacheDefaults(redisCacheConfiguration)
                 .build();
     }
-    
+
     @Bean("caffeineCacheManager")
     public CacheManager caffeineCacheManager() {
         Caffeine<Object, Object> caffeine = Caffeine.newBuilder().initialCapacity(100).maximumSize(1000);
