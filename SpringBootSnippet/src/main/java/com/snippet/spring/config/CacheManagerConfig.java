@@ -34,7 +34,7 @@ public class CacheManagerConfig extends CachingConfigurerSupport{
     @Autowired
     LettuceConnectionFactory lettuceConnectionFactory;
 
-    @Bean
+    @Bean("redisCacheManager")
     @Override
     public CacheManager cacheManager(){
         Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<Object>(Object.class);
@@ -54,6 +54,16 @@ public class CacheManagerConfig extends CachingConfigurerSupport{
                 .cacheDefaults(redisCacheConfiguration)
                 .build();
     }
+    
+    @Bean("caffeineCacheManager")
+    public CacheManager caffeineCacheManager() {
+        Caffeine<Object, Object> caffeine = Caffeine.newBuilder().initialCapacity(100).maximumSize(1000);
+        CaffeineCacheManager caffeineCacheManager = new CaffeineCacheManager();
+        caffeineCacheManager.setAllowNullValues(true);
+        caffeineCacheManager.setCaffeine(caffeine);
+        return caffeineCacheManager;
+    }
+
 
     @Override
     public KeyGenerator keyGenerator() {
