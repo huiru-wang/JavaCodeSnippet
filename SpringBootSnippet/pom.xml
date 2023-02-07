@@ -18,6 +18,7 @@
         <maven.compiler.source>1.8</maven.compiler.source>
         <maven.compiler.target>1.8</maven.compiler.target>
         <maven.compiler.compilerVersion>1.8</maven.compiler.compilerVersion>
+        <caffeine.version>3.1.2</caffeine.version>
         <hutool.version>5.8.10</hutool.version>
         <mybatis.version>2.1.1</mybatis.version>
     </properties>
@@ -41,11 +42,15 @@
                 </exclusion>
             </exclusions>
         </dependency>
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-webflux</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-cache</artifactId>
+        </dependency>
+
         <!--====================  aop  =====================-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -100,7 +105,7 @@
             <version>1.2.83</version>
         </dependency>
 
-        <!--================== redis/redisson ==================-->
+        <!--================== cache: redis/redisson/caffeine ==================-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-redis</artifactId>
@@ -114,7 +119,7 @@
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-pool2</artifactId>
         </dependency>
-       <dependency>
+        <dependency>
             <groupId>com.github.ben-manes.caffeine</groupId>
             <artifactId>caffeine</artifactId>
         </dependency>
@@ -150,11 +155,6 @@
             <version>3.0.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.kafka</groupId>
-            <artifactId>spring-kafka</artifactId>
-            <version></version>
-        </dependency>
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

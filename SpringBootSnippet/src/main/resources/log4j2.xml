@@ -28,7 +28,7 @@
 
     <!--==============定义日志输出目的地、内容和格式等==============-->
     <Appenders>
-        <Console name="Console" target="SYSTEM_OUT">
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
             <PatternLayout charset="UTF-8" pattern="${PATTERN}"/>
         </Console>
 
@@ -78,17 +78,6 @@
             <DefaultRolloverStrategy max="30"/>
         </RollingFile>
 
-        <RollingFile name="MQLog" fileName="${LOG_PATH}/mq.log"
-                     filePattern="${LOG_BACKUP_PATH}/$${date:yyyy-MM}/mq-%d{yyyy-MM-dd}_%i.log.zip"
-                     bufferSize="8192">
-            <PatternLayout charset="UTF-8" pattern="${FILE_PATTERN}"/>
-            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
-            <Policies>
-                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
-                <SizeBasedTriggeringPolicy size="50MB"/>
-            </Policies>
-            <DefaultRolloverStrategy max="30"/>
-        </RollingFile>
     </Appenders>
 
     <!--==============指定路径下使用的Appender==============-->
@@ -96,17 +85,20 @@
         <root level="info">
             <AppenderRef ref="Console"/>
         </root>
+        <!--接口日志-->
         <AsyncLogger name="com.snippet.spring.aop.InterfaceLogAspect" level="info" additivity="false">
             <AppenderRef ref="InterfaceLog"/>
         </AsyncLogger>
-        <AsyncLogger name="com.snippet.spring" level="info" additivity="false">
+
+        <!-- 项目日志 additivity: 是否同时输出到 Root 下-->
+        <AsyncLogger name="com.snippet.spring" level="info" additivity="true">
             <AppenderRef ref="ApplicationLog"/>
         </AsyncLogger>
+
+        <!--mybatis 日志-->
         <AsyncLogger name="org.mybatis" level="debug" additivity="false">
             <AppenderRef ref="MybatisLog"/>
         </AsyncLogger>
-        <AsyncLogger name="org.apache.kafka" level="info" additivity="false">
-            <AppenderRef ref="MQLog"/>
-        </AsyncLogger>
+
     </Loggers>
 </Configuration>

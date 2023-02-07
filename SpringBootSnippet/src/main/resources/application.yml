@@ -36,17 +36,7 @@ spring:
       use-key-prefix: true
       cache-null-values: true # 允许null值，防穿透
       time-to-live: 36000000 # 过期时间
-  # =============Spring-kafka=============
-  kafka:
-    bootstrap-servers: 172.28.206.250:9092
-    producer:
-      key-serializer: org.apache.kafka.common.serialization.StringSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-      retries: 3  # 同步发送 重试次数
-    consumer:
-      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
-      group-id: snippet-consumer-group
+
 logging:
   config: classpath:log4j2.xml
 mybatis-plus:
