@@ -9,17 +9,6 @@ CREATE TABLE `t_user`
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
-CREATE TABLE `t_orderDetail`
-(
-    `id`        bigint NOT NULL COMMENT '订单单品',
-    `orderId`   bigint NOT NULL COMMENT '订单Id',
-    `productId` bigint       DEFAULT NULL COMMENT '商品Id',
-    `quantity`  bigint       DEFAULT NULL COMMENT '商品数量',
-    `payment`   bigint       DEFAULT NULL COMMENT '商品实际总付款',
-    `remarks`   varchar(255) DEFAULT NULL COMMENT '单品备注',
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 CREATE TABLE `t_order`
 (
     `id`         bigint      NOT NULL COMMENT '订单Id',
@@ -31,14 +20,6 @@ CREATE TABLE `t_order`
     `remarks`    varchar(255) DEFAULT NULL COMMENT '订单备注',
     `extInfo`    varchar(255) DEFAULT NULL COMMENT '扩展字段',
     `createTime` datetime     DEFAULT NULL COMMENT '创建时间',
+    `updateTime` datetime     DEFAULT NULL COMMENT '更新时间',
     PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_german2_ci;
-
-CREATE TABLE `t_product`
-(
-    `id`          bigint NOT NULL COMMENT '商品Id',
-    `productName` varchar(128) DEFAULT NULL COMMENT '商品名称',
-    `price`       bigint       DEFAULT NULL COMMENT '商品单价',
-    `productInfo` varchar(255) DEFAULT NULL COMMENT '商品描述',
-    PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

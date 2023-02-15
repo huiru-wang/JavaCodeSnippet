@@ -4,20 +4,28 @@
 
     <!-- 通用查询映射结果 -->
     <resultMap id="BaseResultMap" type="com.snippet.spring.dao.entity.Order">
-        <id column="id" property="id" />
-        <id column="userId" property="userId" />
-        <result column="amount" property="amount" />
-        <result column="type" property="type" />
-        <result column="channel" property="channel" />
-        <result column="status" property="status" />
-        <result column="remarks" property="remarks" />
-        <result column="extInfo" property="extInfo" />
-        <result column="createTime" property="createTime" />
+        <id column="id" property="id"/>
+        <id column="userId" property="userId"/>
+        <result column="amount" property="amount"/>
+        <result column="type" property="type"/>
+        <result column="channel" property="channel"/>
+        <result column="status" property="status"/>
+        <result column="remarks" property="remarks"/>
+        <result column="extInfo" property="extInfo"/>
+        <result column="createTime" property="createTime"/>
+        <result column="updateTime" property="updateTime"/>
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, userId, amount, type, channel, status, remarks, extInfo, createTime
+        id
+        , userId, amount, type, channel, status, remarks, extInfo, createTime
     </sql>
+    <insert id="insertOrder">
+        insert into `t_order`
+        (<include refid="Base_Column_List"/>)
+        values (#{order.id}, #{order.userId}, #{order.amount}, #{order.type}, #{order.channel}, #{order.status},
+        #{order.remarks}, #{order.extInfo}, #{order.createTime})
+    </insert>
 
 </mapper>

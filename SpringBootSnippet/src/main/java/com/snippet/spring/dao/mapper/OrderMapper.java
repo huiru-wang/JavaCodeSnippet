@@ -1,12 +1,15 @@
 package com.snippet.spring.dao.mapper;
 
-import com.snippet.spring.dao.entity.Order;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.snippet.spring.dao.entity.Order;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
+
+import java.util.Collection;
 
 /**
  * <p>
- *  Mapper 接口
+ * Mapper 接口
  * </p>
  *
  * @author will
@@ -15,4 +18,7 @@ import org.apache.ibatis.annotations.Mapper;
 @Mapper
 public interface OrderMapper extends BaseMapper<Order> {
 
+    Integer insertOrder(@Param("order") Order order);
+
+    Integer insertBatchSomeColumn(Collection<Order> entityList);
 }

@@ -1,15 +1,12 @@
 package com.snippet.spring.dao.entity;
 
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.annotation.*;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
+import java.util.Date;
 
 /**
  * <p>
@@ -26,11 +23,11 @@ import java.time.LocalDateTime;
 public class Order {
 
     @ApiModelProperty("订单Id")
-    @TableId(value = "id", type = IdType.ASSIGN_ID)
+    @TableId(type = IdType.ASSIGN_ID)
     private Long id;
 
     @ApiModelProperty("用户Id")
-    @TableField("userId")
+    @TableField(value = "userId")
     private Long userId;
 
     @ApiModelProperty("订单总价")
@@ -58,8 +55,11 @@ public class Order {
     private String extInfo;
 
     @ApiModelProperty("创建时间")
-    @TableField("createTime")
-    private LocalDateTime createTime;
+    @TableField(value = "createTime", fill = FieldFill.INSERT)
+    private Date createTime;
 
+    @ApiModelProperty("更新时间")
+    @TableField(value = "updateTime", fill = FieldFill.INSERT_UPDATE)
+    private Date updateTime;
 
 }

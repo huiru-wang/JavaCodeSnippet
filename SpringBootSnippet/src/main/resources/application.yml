@@ -42,9 +42,3 @@ logging:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # sql语句打印
-  global-config:
-    db-config:
-      logic-delete-value: 0
-      logic-not-delete-value: 1
-    banner: false
-  mapper-locations: classpath:mapper/*.xml
