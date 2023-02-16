@@ -40,11 +40,11 @@ public class CodeGenerator {
             packageConfigBuilder.parent("com.snippet.spring") // 父目录
                     .moduleName("") // module
                     .entity("dao.entity")
-                    .service("service")
-                    .serviceImpl("service.impl")
+                    //.service("service")
+                    .serviceImpl("service")
                     .mapper("dao.mapper")
                     .xml("mapper.xml")
-//                    .controller("controller")
+                    //.controller("controller")
                     .other("config")
                     .pathInfo(Collections.singletonMap(OutputFile.xml,
                             System.getProperty("user.dir") + "/src/main/resources/mapper"));
@@ -79,10 +79,10 @@ public class CodeGenerator {
 
                     // =============== Controller ===============
                     .controllerBuilder()
-                    // .enableHyphenStyle()
-//                    .formatFileName("%sController") // %s 匹配表名
+                    //.enableHyphenStyle()
+                    //.formatFileName("%sController") // %s 匹配表名
                     .enableRestStyle() // 添加 @RestController
-//                    .fileOverride()
+                    //.fileOverride()
 
                     // =============== Service ===============
                     .serviceBuilder()
@@ -98,6 +98,9 @@ public class CodeGenerator {
                     .formatMapperFileName("%sMapper")
                     .enableMapperAnnotation()
                     .formatXmlFileName("%sXml");
-        }).templateEngine(new VelocityTemplateEngine()).execute();
+        }).templateEngine(new VelocityTemplateEngine())    // 引擎选择：FreemarkerTemplateEngine也可
+                .templateConfig(builder -> builder.controller("")) // 不生成controller
+                .templateConfig(builder -> builder.service("")) // 不生成service接口
+                .execute();
     }
 }
