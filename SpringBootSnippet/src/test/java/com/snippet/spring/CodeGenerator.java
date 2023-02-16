@@ -29,7 +29,7 @@ public class CodeGenerator {
     @Test
     public void run() {
         FastAutoGenerator.create(url, username, password).globalConfig(globalConfigBuilder -> {
-            globalConfigBuilder.author(author)
+            globalConfigBuilder.author(System.getenv().get("USERNAME"))
                     .outputDir(System.getProperty("user.dir") + "/src/main/java")
                     .commentDate("yyyy-MM-dd hh:mm:ss")
                     .dateType(DateType.TIME_PACK)
@@ -40,8 +40,8 @@ public class CodeGenerator {
             packageConfigBuilder.parent("com.snippet.spring") // 父目录
                     .moduleName("") // module
                     .entity("dao.entity")
-                    //.service("service")
-                    .serviceImpl("service")
+                    .service("service")
+                    .serviceImpl("service.impl")
                     .mapper("dao.mapper")
                     .xml("mapper.xml")
                     //.controller("controller")
@@ -100,7 +100,7 @@ public class CodeGenerator {
                     .formatXmlFileName("%sXml");
         }).templateEngine(new VelocityTemplateEngine())    // 引擎选择：FreemarkerTemplateEngine也可
                 .templateConfig(builder -> builder.controller("")) // 不生成controller
-                .templateConfig(builder -> builder.service("")) // 不生成service接口
+                //.templateConfig(builder -> builder.service("")) // 不生成service接口
                 .execute();
     }
 }
