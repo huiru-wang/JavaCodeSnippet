@@ -34,7 +34,8 @@ public class CodeGenerator {
                     .commentDate("yyyy-MM-dd hh:mm:ss")
                     .dateType(DateType.TIME_PACK)
                     .enableSwagger()
-                    .disableOpenDir();
+                    .disableOpenDir()
+                    .fileOverride(); // 覆盖原有文件
         }).packageConfig(packageConfigBuilder -> {
             // =============== package ===============
             packageConfigBuilder.parent("com.snippet.spring") // 父目录
