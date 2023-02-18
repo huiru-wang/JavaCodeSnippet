@@ -30,7 +30,6 @@ import java.util.function.BiConsumer;
 import java.util.function.Consumer;
 
 /**
- * @author w00623538
  * @since 2023-02-17
  */
 public class HttpUtils {
