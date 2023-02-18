@@ -76,12 +76,12 @@ public class HttpUtils {
         }
     }
 
-    public static Response get(String baseUrl, Map<String, String> pathParam, Map<String, String> headersMap) {
+    public static String get(String baseUrl, Map<String, String> pathParam, Map<String, String> headersMap) {
         Request request = getRequest(baseUrl, HttpMethod.GET, headersMap, pathParam, null);
         return execute(request);
     }
 
-    public static Response post(String baseUrl, Map<String, String> headersMap, String requestBody) {
+    public static String post(String baseUrl, Map<String, String> headersMap, String requestBody) {
         Request request = getRequest(baseUrl, HttpMethod.POST, headersMap, null, requestBody);
         return execute(request);
     }
@@ -101,7 +101,9 @@ public class HttpUtils {
     private static Response execute(Request request) {
         Call call = okHttpClient.newCall(request);
         try (Response response = call.execute()) {
-            return response;
+            if (response.body() != null) {
+                return response.body().string();
+            }
         } catch (IOException e) {
             log.error("IOException: ", e);
         }
