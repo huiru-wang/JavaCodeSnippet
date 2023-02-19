@@ -1,0 +1,6 @@
+spring:
+  application:
+    name: spring-kafka-demo
+  kafka:
+    bootstrap-servers: ubuntu.wsl:9092
+    # 详见 KafkaConfig

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration>
+    <!--========================声明变量========================-->
+    <Properties>
+        <property name="APP_NAME">springApplication</property>
+        <!--日志存放路径-->
+        <property name="LOG_PATH">logs</property>
+        <!--日志备份路径-->
+        <property name="LOG_BACKUP_PATH">${LOG_PATH}/backup</property>
+        <!--日志格式-->
+        <property name="PATTERN">
+            %highlight{%d{yyyy-MM-dd HH:mm:ss.SSS}|%blue{${sys:PID}}|%yellow{%thread}|%cyan{%level}|%msg%n}{ERROR=red,
+            WARN=bg_#5792e6 fg_#eef26b bold, INFO=black, DEBUG=#3fe0a8, TRACE=blue}
+        </property>
+        <property name="FILE_PATTERN">
+            %highlight{%d{yyyy-MM-dd HH:mm:ss.SSS}|${sys:PID}|%thread|%level|%msg%n}{ERROR=red,
+            WARN=bg_#5792e6 fg_#eef26b bold, INFO=black, DEBUG=#3fe0a8, TRACE=blue}
+        </property>
+    </Properties>
+
+    <!--==============定义日志输出目的地、内容和格式等==============-->
+    <Appenders>
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout charset="UTF-8" pattern="${PATTERN}"/>
+        </Console>
+
+        <!-- 同步滚动日志 -->
+        <RollingFile name="ApplicationLog" fileName="${LOG_PATH}/${APP_NAME}.log"
+                     filePattern="${LOG_BACKUP_PATH}/$${date:yyyy-MM}/${APP_NAME}-%d{yyyy-MM-dd}_%i.log.zip"
+                     bufferSize="8192">
+            <PatternLayout charset="UTF-8" pattern="${FILE_PATTERN}"/>
+            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="50MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+
+        <RollingFile name="MQLog" fileName="${LOG_PATH}/mq.log"
+                     filePattern="${LOG_BACKUP_PATH}/$${date:yyyy-MM}/mq-%d{yyyy-MM-dd}_%i.log.zip"
+                     bufferSize="8192">
+            <PatternLayout charset="UTF-8" pattern="${FILE_PATTERN}"/>
+            <ThresholdFilter level="DEBUG" onMatch="ACCEPT" onMismatch="DENY"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="50MB"/>
+            </Policies>
+            <DefaultRolloverStrategy max="30"/>
+        </RollingFile>
+    </Appenders>
+
+    <!--==============指定路径下使用的Appender==============-->
+    <Loggers>
+        <root level="info">
+            <AppenderRef ref="Console"/>
+        </root>
+
+        <!-- 项目日志 additivity: 是否同时输出到 Root 下-->
+        <AsyncLogger name="com.snippet.kafkaexample" level="info" additivity="true">
+            <AppenderRef ref="ApplicationLog"/>
+        </AsyncLogger>
+
+        <!--Kafka 日志-->
+        <AsyncLogger name="org.apache.kafka" level="info" additivity="false">
+            <AppenderRef ref="MQLog"/>
+        </AsyncLogger>
+    </Loggers>
+</Configuration>
