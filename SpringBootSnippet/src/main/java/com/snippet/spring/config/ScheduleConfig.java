@@ -1,7 +1,5 @@
 package com.snippet.spring.config;
 
-import org.springframework.context.annotation.Configuration;
-import org.springframework.scheduling.annotation.EnableScheduling;
 import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
@@ -13,8 +11,8 @@ import java.util.concurrent.ThreadPoolExecutor;
 /**
  * 定时任务指定线程池
  */
-@Configuration
-@EnableScheduling
+// @Configuration
+// @EnableScheduling
 public class ScheduleConfig implements SchedulingConfigurer {
     @Override
     public void configureTasks(ScheduledTaskRegistrar taskRegistrar) {

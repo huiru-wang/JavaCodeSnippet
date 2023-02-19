@@ -2,6 +2,7 @@ package com.snippet.spring.mybatisplus;
 
 import com.snippet.spring.dao.entity.Order;
 import com.snippet.spring.dao.mapper.OrderMapper;
+import com.snippet.spring.service.OrderService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -17,10 +18,10 @@ public class AutoFillTest {
 
     public Order createOrder() {
         Order order = new Order();
-        order.setUserId(1L);
-        order.setAmount(1111L);
-        order.setChannel("Adyen");
-        order.setStatus(0);
+        order.setUserId(111L);
+        order.setAmount(666L);
+        order.setChannel("knet");
+        order.setStatus(1);
         return order;
     }
 
@@ -34,5 +35,13 @@ public class AutoFillTest {
     public void auto_fill_by_baseMapper_test() {
         Order order = createOrder();
         orderMapper.insert(order);
+    }
+
+    @Autowired
+    OrderService orderService;
+
+    @Test
+    public void reflect() {
+      
     }
 }

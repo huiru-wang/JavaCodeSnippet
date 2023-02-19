@@ -6,7 +6,7 @@ import io.swagger.annotations.ApiModelProperty;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 /**
  * <p>
@@ -56,10 +56,10 @@ public class Order {
 
     @ApiModelProperty("创建时间")
     @TableField(value = "createTime", fill = FieldFill.INSERT)
-    private Date createTime;
+    private LocalDateTime createTime;
 
     @ApiModelProperty("更新时间")
     @TableField(value = "updateTime", fill = FieldFill.INSERT_UPDATE)
-    private Date updateTime;
+    private LocalDateTime updateTime;
 
 }

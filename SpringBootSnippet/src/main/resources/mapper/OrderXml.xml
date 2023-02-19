@@ -19,13 +19,13 @@
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
         id
-        , userId, amount, type, channel, status, remarks, extInfo, createTime
+        , userId, amount, type, channel, status, remarks, extInfo, createTime,updateTime
     </sql>
     <insert id="insertOrder">
         insert into `t_order`
         (<include refid="Base_Column_List"/>)
-        values (#{order.id}, #{order.userId}, #{order.amount}, #{order.type}, #{order.channel}, #{order.status},
-        #{order.remarks}, #{order.extInfo}, #{order.createTime})
+        values ( #{order.userId}, #{order.amount}, #{order.type}, #{order.channel}, #{order.status},
+        #{order.remarks}, #{order.extInfo}, #{order.createTime} , #{order.updateTime})
     </insert>
 
 </mapper>

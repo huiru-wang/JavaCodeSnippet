@@ -2,7 +2,6 @@ package com.snippet.spring.exception;
 
 import com.snippet.spring.common.enums.ResponseEnums;
 import com.snippet.spring.model.BaseResponse;
-import com.snippet.spring.util.ResponseUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.BindingResult;
@@ -28,7 +27,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(BusinessException.class)
     public BaseResponse handleBusinessException(BusinessException e) {
 
-        return ResponseUtils.fail(e.getCode(), e.getMessage());
+        return BaseResponse.fail(e.getCode(), e.getMessage());
     }
 
     /**
@@ -72,6 +71,6 @@ public class GlobalExceptionHandler {
 
         }
         int code = ResponseEnums.PARAM_INVALID.getCode();
-        return ResponseUtils.fail(code, errorMessage.toString());
+        return BaseResponse.fail(code, errorMessage.toString());
     }
 }
