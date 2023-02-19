@@ -1,4 +1,4 @@
-package com.snippet.spring.config;
+package com.snippet.httpclientimpl.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -10,7 +10,7 @@ import reactor.netty.resources.ConnectionProvider;
 import java.time.Duration;
 
 /**
- * create by whr on 2023/2/7
+ * create by whr on 2023/2/19
  */
 @Configuration
 public class WebClientConfig {

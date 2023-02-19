@@ -14,28 +14,6 @@ spring:
       maximum-pool-size: 20
       pool-name: wsl-datasource
       connection-timeout: 10000
-  # =============Redis=============
-  redis:
-    host: ubuntu.wsl
-    port: 6379
-    password: 123456
-    database: 0
-    connect-timeout: 1000
-    lettuce:
-      pool:
-        enabled: true
-        max-active: 10
-        max-idle: 10
-        min-idle: 10
-        max-wait: 1000ms
-  # =============Spring-Cache=============
-  cache:
-    type: redis # 指定缓存组件,Redis默认使用RedisTemplate客户端,需要配置序列化
-    redis:
-      key-prefix: snippet_
-      use-key-prefix: true
-      cache-null-values: true # 允许null值，防穿透
-      time-to-live: 36000000 # 过期时间
 
 logging:
   config: classpath:log4j2.xml

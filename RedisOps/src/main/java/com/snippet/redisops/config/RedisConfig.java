@@ -1,4 +1,4 @@
-package com.snippet.spring.config;
+package com.snippet.redisops.config;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
@@ -15,7 +15,6 @@ import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactor
 import org.springframework.data.redis.core.*;
 import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
 import org.springframework.data.redis.serializer.StringRedisSerializer;
-
 
 @Configuration
 public class RedisConfig {
@@ -108,3 +107,4 @@ public class RedisConfig {
         return Redisson.create(config);
     }
 }
+

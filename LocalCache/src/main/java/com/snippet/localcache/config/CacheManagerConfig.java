@@ -1,5 +1,6 @@
-package com.snippet.spring.config;
+package com.snippet.localcache.config;
 
+import cn.hutool.core.util.ArrayUtil;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.PropertyAccessor;
@@ -7,12 +8,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.benmanes.caffeine.cache.Caffeine;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.cache.caffeine.CaffeineCacheManager;
 import org.springframework.cache.interceptor.KeyGenerator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 import org.springframework.data.redis.cache.RedisCacheConfiguration;
 import org.springframework.data.redis.cache.RedisCacheManager;
 import org.springframework.data.redis.connection.lettuce.LettuceConnectionFactory;
@@ -23,21 +24,30 @@ import org.springframework.data.redis.serializer.StringRedisSerializer;
 import java.time.Duration;
 
 /**
- * 务必重新设置 使用的序列化
- * 默认的序列化方式，在缓存对象时会报错
- *
- * @Cacheable(key = "#key",value = "cache_demo")
- * 缓存的key默认生成策略： value::key
- * 可以通过keyGenerator()重写生成策略
+ * 指定需要的cacheManager
+ * <p>
+ * create by whr on 2023/2/19
  */
 @EnableCaching
 @Configuration
-public class CacheManagerConfig extends CachingConfigurerSupport {
+public class CacheManagerConfig {
+
+    /**
+     * 入参如果是对象，需要重写toString
+     */
+    @Bean("paramKeyGenerator")
+    public KeyGenerator keyGenerator() {
+        return (target, method, params) -> {
+            String paramKey = ArrayUtil.join(params, "_", Object::toString);
+            return String.join("_", method.getName(), paramKey);
+        };
+    }
+
+    // ==========================Redis==========================
     @Autowired
     LettuceConnectionFactory lettuceConnectionFactory;
 
     @Bean("redisCacheManager")
-    @Override
     public CacheManager cacheManager() {
         Jackson2JsonRedisSerializer<Object> jackson2JsonRedisSerializer = new Jackson2JsonRedisSerializer<Object>(Object.class);
         ObjectMapper objectMapper = new ObjectMapper();
@@ -57,9 +67,17 @@ public class CacheManagerConfig extends CachingConfigurerSupport {
                 .build();
     }
 
+    // ==========================Caffeine==========================
+
+    @Primary // 需要声明默认cacheManager
     @Bean("caffeineCacheManager")
     public CacheManager caffeineCacheManager() {
-        Caffeine<Object, Object> caffeine = Caffeine.newBuilder().initialCapacity(100).maximumSize(1000);
+        Caffeine<Object, Object> caffeine = Caffeine.newBuilder()
+                .initialCapacity(100)
+                .maximumSize(1000)
+                .expireAfterAccess(Duration.ofMinutes(10))
+                .expireAfterWrite(Duration.ofMinutes(10));
+
         CaffeineCacheManager caffeineCacheManager = new CaffeineCacheManager();
         caffeineCacheManager.setAllowNullValues(true);
         caffeineCacheManager.setCaffeine(caffeine);
@@ -67,8 +85,4 @@ public class CacheManagerConfig extends CachingConfigurerSupport {
     }
 
 
-    @Override
-    public KeyGenerator keyGenerator() {
-        return super.keyGenerator();
-    }
 }
