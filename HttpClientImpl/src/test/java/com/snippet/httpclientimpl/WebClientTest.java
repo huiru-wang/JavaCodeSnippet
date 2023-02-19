@@ -1,9 +1,7 @@
-package com.snippet.spring.httpclient;
+package com.snippet.httpclientimpl;
 
 import cn.hutool.core.util.IdUtil;
-import com.snippet.spring.common.constants.Constants;
-import com.snippet.spring.exception.BusinessException;
-import com.snippet.spring.model.BaseResponse;
+import com.snippet.httpclientimpl.model.BaseResponse;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,14 +15,10 @@ import reactor.core.publisher.Mono;
 
 import java.util.concurrent.CountDownLatch;
 
-
 /**
- * webClient 使用
- * https://tanzu.vmware.com/developer/guides/spring-webclient-gs/
- * create by whr on 2023/2/7
+ * create by whr on 2023/2/19
  */
 public class WebClientTest {
-
     private static final Logger log = LoggerFactory.getLogger(WebClientTest.class);
 
     @Test
@@ -78,7 +72,7 @@ public class WebClientTest {
         WebClient webClient = WebClient.create("http://localhost:9090/api/hello/badResponse");
 
         String result = webClient.get()
-                .header(Constants.X_TRACE_ID, IdUtil.fastSimpleUUID())
+                .header("x-trace-id", IdUtil.fastSimpleUUID())
                 .headers(httpHeaders -> {
                     httpHeaders.add(HttpHeaders.AUTHORIZATION, "auth");
                     // ..
@@ -103,7 +97,7 @@ public class WebClientTest {
                 .get()
                 .retrieve()
                 .onStatus(HttpStatus::isError,
-                        response -> response.bodyToMono(String.class).map(e -> new BusinessException(-1, ""))
+                        response -> response.bodyToMono(String.class).map(e -> new RuntimeException())
                 )// 当isError，处理response，并返回Mono
                 .bodyToMono(String.class).blockOptional().orElse("bad request");
 

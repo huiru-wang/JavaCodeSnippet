@@ -1,13 +1,10 @@
+package com.snippet.httpclientimpl.utils;
 
 import cn.hutool.core.map.MapUtil;
 import cn.hutool.core.net.URLEncodeUtil;
 import cn.hutool.core.util.StrUtil;
-import com.huawei.cp.wiseeye.common.model.response.WiseEyeResponse;
-import com.huawei.cp.wiseeye.common.model.response.code.WiseEyeError;
-import com.huawei.cp.wiseeye.faultlifecycle.common.constant.EnvConstant;
-import com.huawei.cp.wiseeye.faultlifecycle.common.interceptor.RetryInterceptor;
+import com.snippet.httpclientimpl.interceptor.RetryInterceptor;
 import okhttp3.*;
-import org.hibernate.validator.internal.constraintvalidators.bv.EmailValidator;
 import org.jetbrains.annotations.NotNull;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -17,20 +14,16 @@ import org.springframework.util.Assert;
 import javax.net.ssl.SSLContext;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
-import javax.swing.text.html.Option;
 import java.io.IOException;
 import java.security.KeyManagementException;
 import java.security.NoSuchAlgorithmException;
 import java.time.Duration;
 import java.util.Map;
-import java.util.Objects;
-import java.util.Optional;
 import java.util.concurrent.TimeUnit;
 import java.util.function.BiConsumer;
-import java.util.function.Consumer;
 
 /**
- * @since 2023-02-17
+ * create by whr on 2023/2/19
  */
 public class HttpUtils {
 
@@ -65,8 +58,8 @@ public class HttpUtils {
             okHttpClient = new OkHttpClient.Builder()
                     .sslSocketFactory(sslContext.getSocketFactory(), (X509TrustManager) trustAllCerts[0])
                     .connectionPool(new ConnectionPool(50, 10000, TimeUnit.MILLISECONDS))
-                    .connectTimeout(Duration.ofMillis(EnvConstant.connectTimeout))
-                    .readTimeout(Duration.ofMillis(EnvConstant.readTimeout))
+                    .connectTimeout(Duration.ofMillis(2000))
+                    .readTimeout(Duration.ofMillis(2000))
                     .retryOnConnectionFailure(true)
                     .addInterceptor(new RetryInterceptor(3, 500))
                     .build();
@@ -98,7 +91,7 @@ public class HttpUtils {
         asyncExecute(request, callback(consumer));
     }
 
-    private static Response execute(Request request) {
+    private static String execute(Request request) {
         Call call = okHttpClient.newCall(request);
         try (Response response = call.execute()) {
             if (response.body() != null) {
@@ -170,3 +163,4 @@ public class HttpUtils {
         return builder.set("Authorization", "Authorization").build();
     }
 }
+

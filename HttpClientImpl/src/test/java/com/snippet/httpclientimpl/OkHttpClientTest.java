@@ -1,78 +1,43 @@
-package com.snippet.spring.httpclient;
-  
+package com.snippet.httpclientimpl;
+
+import cn.hutool.core.map.MapUtil;
+import cn.hutool.core.net.URLEncodeUtil;
 import com.alibaba.fastjson.JSON;
-
 import okhttp3.*;
-
 import org.jetbrains.annotations.NotNull;
 import org.junit.jupiter.api.Test;
+import org.springframework.util.Assert;
 
 import java.io.IOException;
-import java.security.KeyManagementException;
-import java.security.NoSuchAlgorithmException;
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
-import javax.net.ssl.SSLContext;
-import javax.net.ssl.TrustManager;
-import javax.net.ssl.X509TrustManager;
-
 /**
- * reference: https://www.baeldung.com/okhttp-post
- * 
- * @author w00623538
- * @since 2023-02-17
+ * create by whr on 2023/2/19
  */
-public class OkHttpUtilsTest {
-    private static final OkHttpClient okHttpClient;
+public class OkHttpClientTest {
+    private static final OkHttpClient okHttpClient = new OkHttpClient.Builder()
+            .connectionPool(new ConnectionPool(50, 10000, TimeUnit.MILLISECONDS))
+            .connectTimeout(Duration.ofMillis(2000))
+            .readTimeout(Duration.ofMillis(2000))
+            .retryOnConnectionFailure(true)
+            .build();
+    String getUrl = "http://localhost:9090/api/get";
 
-    static TrustManager[] trustAllCerts = new TrustManager[] {new X509TrustManager() {
-        @Override
-        public void checkClientTrusted(java.security.cert.X509Certificate[] chain, String authType) {
-        }
-
-        @Override
-        public void checkServerTrusted(java.security.cert.X509Certificate[] chain, String authType) {
-        }
-
-        @Override
-        public java.security.cert.X509Certificate[] getAcceptedIssuers() {
-            return new java.security.cert.X509Certificate[] {};
-        }
-    }};
-
-    static {
-        SSLContext sslContext = null;
-        try {
-            sslContext = SSLContext.getInstance("SSL");
-            sslContext.init(null, trustAllCerts, new java.security.SecureRandom());
-
-            okHttpClient = new OkHttpClient.Builder()
-                .sslSocketFactory(sslContext.getSocketFactory(), (X509TrustManager) trustAllCerts[0])
-                .connectionPool(new ConnectionPool(50, 10000, TimeUnit.MILLISECONDS))
-                .connectTimeout(Duration.ofMillis(2000))
-                .readTimeout(Duration.ofMillis(2000))
-                .retryOnConnectionFailure(true)
-                .build();
-
-        } catch (NoSuchAlgorithmException | KeyManagementException e) {
-            throw new RuntimeException(e);
-        }
-    }
-
-    String url = "http://localhost:9090/hello/get";
+    String postUrl = "http://localhost:9090/api/post";
 
     Headers headers = new Headers.Builder().set("Content-Type", "application/json").build();
+
 
     @Test
     public void sync_get() {
         HashMap<String, String> param = new HashMap<>();
         param.put("username", "daD");
         param.put("id", "1");
-        HttpUrl httpUrl = parseHttpUrl(url, param);
+        String httpUrl = parseHttpUrl(getUrl, param);
 
         Request request = new Request.Builder().url(httpUrl).headers(headers).get().build();
         Call call = okHttpClient.newCall(request);
@@ -86,15 +51,20 @@ public class OkHttpUtilsTest {
         }
     }
 
-    private HttpUrl parseHttpUrl(String url, Map<String, String> pathParam) {
-        HttpUrl.Builder builder = new HttpUrl.Builder().parse$okhttp(null, url);
-        pathParam.forEach(builder::addQueryParameter);
-        return builder.build();
+    private static String parseHttpUrl(String url, Map<String, String> pathParam) {
+        Assert.notNull(url, "url is null");
+        HttpUrl httpUrl = HttpUrl.parse(url);
+        HttpUrl.Builder builder = httpUrl.newBuilder();
+        if (MapUtil.isNotEmpty(pathParam)) {
+            pathParam.forEach(builder::addQueryParameter);
+        }
+
+        return URLEncodeUtil.encode(builder.build().toString());
     }
 
     @Test
     public void async_get() throws InterruptedException {
-        Request request = new Request.Builder().url(url).headers(headers).get().build();
+        Request request = new Request.Builder().url(getUrl).headers(headers).get().build();
         Call call = okHttpClient.newCall(request);
         call.enqueue(new Callback() {
             @Override
@@ -116,10 +86,10 @@ public class OkHttpUtilsTest {
         FormBody formBody = new FormBody.Builder().add("username", "dad").build();
 
         Request postRequest = new Request.Builder().url("http://localhost:9090/hello/post")
-            .headers(headers)
-            .addHeader("Authorization", "I'm God")
-            .post(formBody)
-            .build();
+                .headers(headers)
+                .addHeader("Authorization", "I'm God")
+                .post(formBody)
+                .build();
 
         Call call = okHttpClient.newCall(postRequest);
 
@@ -140,11 +110,11 @@ public class OkHttpUtilsTest {
 
         RequestBody requestBody = RequestBody.create(JSON.toJSONString(body), MediaType.parse("application/json"));
 
-        Request postRequest = new Request.Builder().url("http://localhost:9090/hello/post")
-            .headers(headers)
-            .addHeader("Authorization", "I'm God")
-            .post(requestBody)
-            .build();
+        Request postRequest = new Request.Builder().url(postUrl)
+                .headers(headers)
+                .addHeader("Authorization", "I'm God")
+                .post(requestBody)
+                .build();
 
         Call call = okHttpClient.newCall(postRequest);
 
@@ -158,3 +128,4 @@ public class OkHttpUtilsTest {
         }
     }
 }
+

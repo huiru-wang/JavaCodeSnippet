@@ -1,3 +1,4 @@
+package com.snippet.httpclientimpl.interceptor;
 
 import okhttp3.Interceptor;
 import okhttp3.Request;
@@ -10,10 +11,9 @@ import java.io.IOException;
 import java.util.concurrent.TimeUnit;
 
 /**
-
- * @since 2023-02-17
+ * create by whr on 2023/2/19
  */
-public class RetryInterceptor  implements Interceptor {
+public class RetryInterceptor implements Interceptor {
 
     private static final Logger log = LoggerFactory.getLogger(RetryInterceptor.class);
 
@@ -23,7 +23,7 @@ public class RetryInterceptor  implements Interceptor {
 
     public RetryInterceptor(int maxRetry, int delay) {
         this.maxRetry = maxRetry;
-        this.delay =delay;
+        this.delay = delay;
     }
 
     @NotNull
@@ -44,4 +44,5 @@ public class RetryInterceptor  implements Interceptor {
             response = chain.proceed(request);
         }
         return response;
-    }}
+    }
+}
