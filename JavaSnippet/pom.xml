@@ -25,6 +25,13 @@
             <artifactId>lombok</artifactId>
             <version>1.18.24</version>
         </dependency>
+             
+<!--       计算Java对象内存大小        -->
+        <dependency>
+            <groupId>org.openjdk.jol</groupId>
+            <artifactId>jol-core</artifactId>
+            <version>0.14</version>
+        </dependency>
         <dependency>
             <groupId>org.junit.jupiter</groupId>
             <artifactId>junit-jupiter</artifactId>
