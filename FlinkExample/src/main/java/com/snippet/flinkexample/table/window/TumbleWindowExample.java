@@ -25,25 +25,13 @@
         // kafka source
         tableEnv.executeSql(kafkaSource);
 
+        String sql = "SELECT CAST(TUMBLE_START(ts, INTERVAL '5' SECOND) AS STRING) window_start, COUNT(serviceId) \n" +
+                " FROM fault_event \n" +
+                " GROUP BY TUMBLE(ts, INTERVAL '5' SECOND)";
 
-        String ddlSink = "CREATE TABLE public_alert_agg (\n" +
-                "  startTime BIGINT\n" +
-                ") WITH (\n" +
-                " 'connector' = 'jdbc',\n" +
-                " 'driver' = 'com.mysql.cj.jdbc.Driver',\n" +
-                " 'url' = 'jdbc:mysql://localhost:3306/snippet',\n" +
-                " 'table-name' = 't_public_alert_agg', \n" +
-                " 'username' = 'root', \n" +
-                " 'password' = 'root',\n" +
-                " 'sink.buffer-flush.max-rows' = '100', \n" +
-                " 'sink.buffer-flush.interval' = '600'\n" +
-                ")";
+        Table table = tableEnv.sqlQuery(sql);
 
-        tableEnv.executeSql(ddlSink);
-
-        String sql = "insert into public_alert_agg select startTimestamp from fault_event";
-
-        tableEnv.executeSql(sql);
+        tableEnv.toDataStream(table, Row.class).print();
 
         executionEnvironment.execute();
     }
