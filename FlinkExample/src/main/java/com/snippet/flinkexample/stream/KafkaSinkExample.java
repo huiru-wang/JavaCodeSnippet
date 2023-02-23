@@ -19,7 +19,6 @@ import org.apache.flink.util.Collector;
  */
 public class KafkaSinkExample {
 
-
     public static void main(String[] args) throws Exception {
 
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();

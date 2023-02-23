@@ -4,6 +4,7 @@ import cn.hutool.core.util.IdUtil;
 import com.snippet.flinkexample.model.MockEvent;
 import org.apache.flink.streaming.api.functions.source.SourceFunction;
 
+import java.time.LocalDateTime;
 import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
@@ -32,8 +33,8 @@ public class MockEventSource implements SourceFunction<MockEvent> {
                     statusList[random.nextInt(statusList.length)],
                     alertLevelList[random.nextInt(alertLevelList.length)],
                     hostIpList[random.nextInt(hostIpList.length)],
-                    System.currentTimeMillis())
-            );
+                    LocalDateTime.now()
+            ));
             TimeUnit.MILLISECONDS.sleep(500);
         }
     }

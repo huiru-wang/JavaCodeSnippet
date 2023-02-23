@@ -2,6 +2,8 @@ package com.snippet.flinkexample.model;
 
 import lombok.Data;
 
+import java.time.LocalDateTime;
+
 /**
  * create by whr on 2023/2/22
  */
@@ -18,12 +20,12 @@ public class MockEvent {
 
     private String hostIp;
 
-    private Long startTime;
+    private LocalDateTime startTime;
 
     public MockEvent() {
     }
 
-    public MockEvent(String serviceId, Long alertId, String status, String alertLevel, String hostIp, Long startTime) {
+    public MockEvent(String serviceId, Long alertId, String status, String alertLevel, String hostIp, LocalDateTime startTime) {
         this.serviceId = serviceId;
         this.alertId = alertId;
         this.status = status;

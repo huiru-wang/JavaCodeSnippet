@@ -30,8 +30,6 @@ public class KafkaSourceExample {
                 // .setProperty("security.protocol", "SASL_PLAINTEXT")
                 .build();
 
-        // TODO checkpoint?
-
         DataStreamSource<KafkaMessageModel> dataStream = env.fromSource(
                 kafkaSource,
                 WatermarkStrategy.forBoundedOutOfOrderness(Duration.ofSeconds(5)),
