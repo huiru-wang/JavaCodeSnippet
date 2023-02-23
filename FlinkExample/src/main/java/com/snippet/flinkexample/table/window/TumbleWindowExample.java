@@ -1,6 +1,6 @@
 package com.snippet.flinkexample.table.window;
 
-import com.snippet.flinkexample.udf.DateParserFunction;
+import com.snippet.flinkexample.udf.LocalDateTimeParserFunction;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
 
@@ -13,7 +13,7 @@ public class TumbleWindowExample {
         StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment();
         StreamTableEnvironment tableEnv = StreamTableEnvironment.create(executionEnvironment);
 
-        tableEnv.createTemporaryFunction("ParseTimestamp", new DateParserFunction());
+        tableEnv.createTemporaryFunction("ParseTimestamp", new LocalDateTimeParserFunction());
         String kafkaSource = "CREATE TABLE fault_event (\n" +
                 "  serviceId STRING,\n" +
                 "  microServiceId STRING,\n" +
