@@ -8,7 +8,7 @@ import java.time.LocalDateTime;
  * create by whr on 2023/2/22
  */
 @Data
-public class MockEvent {
+public class Event {
 
     private String serviceId;
 
@@ -16,21 +16,26 @@ public class MockEvent {
 
     private String status;
 
-    private String alertLevel;
+    private String category;
 
     private String hostIp;
 
     private LocalDateTime startTime;
 
-    public MockEvent() {
+    public Event() {
     }
 
-    public MockEvent(String serviceId, Long alertId, String status, String alertLevel, String hostIp, LocalDateTime startTime) {
+    public Event(String serviceId, Long alertId, String status, String category, String hostIp, LocalDateTime startTime) {
         this.serviceId = serviceId;
         this.alertId = alertId;
         this.status = status;
-        this.alertLevel = alertLevel;
+        this.category = category;
         this.hostIp = hostIp;
         this.startTime = startTime;
     }
+
+    public Event(String serviceId) {
+        this.serviceId = serviceId;
+    }
+
 }

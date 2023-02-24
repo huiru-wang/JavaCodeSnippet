@@ -10,14 +10,14 @@ public class KafkaMessageModel {
 
     private String key;
 
-    private MockEvent value;
+    private Event value;
 
     private Long offset;
 
     public KafkaMessageModel() {
     }
 
-    public KafkaMessageModel(String key, MockEvent value, Long offset) {
+    public KafkaMessageModel(String key, Event value, Long offset) {
         this.key = key;
         this.value = value;
         this.offset = offset;

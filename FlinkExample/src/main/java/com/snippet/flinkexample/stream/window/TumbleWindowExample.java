@@ -1,11 +1,16 @@
 package com.snippet.flinkexample.stream.window;
 
+import com.snippet.flinkexample.udf.LocalDateTimeParserFunction;
+import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
+import org.apache.flink.table.api.Table;
+import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
+
 /**
  * create by whr on 2023/2/23
  */
 public class TumbleWindowExample {
-  
-      public static void main(String[] args) throws Exception {
+
+    public static void main(String[] args) throws Exception {
         // 获取流环境
         StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment();
 
@@ -14,30 +19,30 @@ public class TumbleWindowExample {
         tableEnv.createTemporaryFunction("ParseLocalDate", new LocalDateTimeParserFunction());
 
         String kafkaSource = "CREATE TABLE fault_event (\n" +
-                "  id BIGINT,\n"+
-                "  site STRING,\n"+
-                "  tenantId STRING,\n"+
-                "  applicationId STRING,\n"+
-                "  provider STRING,\n"+
+                "  id BIGINT,\n" +
+                "  site STRING,\n" +
+                "  tenantId STRING,\n" +
+                "  applicationId STRING,\n" +
+                "  provider STRING,\n" +
                 "  serviceId STRING,\n" +
                 "  subType STRING,\n" +
                 "  status STRING,\n" +
                 "  objName STRING,\n" +
-                "  msg STRING,\n"+
-                "  isSuppressed BOOLEAN,\n"+
-                "  isDeleted BOOLEAN,\n"+
-                "  hostIp STRING,\n"+
+                "  msg STRING,\n" +
+                "  isSuppressed BOOLEAN,\n" +
+                "  isDeleted BOOLEAN,\n" +
+                "  hostIp STRING,\n" +
                 "  occurTime STRING,\n" +
                 "  detectTime STRING,\n" +
                 "  lastModifiedTime STRING,\n" +
-                "  ts AS TO_TIMESTAMP( ParseLocalDate(occurTime) ),\n"+
-                "  WATERMARK FOR ts AS ts - INTERVAL '60' SECOND "+
+                "  ts AS TO_TIMESTAMP( ParseLocalDate(occurTime) ),\n" +
+                "  WATERMARK FOR ts AS ts - INTERVAL '60' SECOND " +
                 ") WITH (\n" +
                 " 'connector' = 'kafka',\n" +
                 " 'topic' = 'snippet1',\n" +
                 " 'properties.bootstrap.servers' = 'localhost:9092',\n" +
                 " 'properties.group.id' = 'flink_table',\n" +
-                " 'scan.startup.mode' = 'earliest-offset',\n"+
+                " 'scan.startup.mode' = 'earliest-offset',\n" +
                 " 'value.format' = 'json'\n" +
                 ")";
         // kafka source

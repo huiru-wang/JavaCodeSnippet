@@ -1,7 +1,7 @@
 package com.snippet.flinkexample.stream;
 
-import com.snippet.flinkexample.model.MockEvent;
-import com.snippet.flinkexample.source.MockEventSource;
+import com.snippet.flinkexample.model.Event;
+import com.snippet.flinkexample.source.EventSource;
 import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
@@ -15,9 +15,9 @@ public class MySQLSinkExample {
     public static void main(String[] args) throws Exception {
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
-        SingleOutputStreamOperator<MockEvent> streamOperator = env.addSource(new MockEventSource());
+        SingleOutputStreamOperator<Event> streamOperator = env.addSource(new EventSource());
 
-        SingleOutputStreamOperator<MockEvent> aggregateOperator = streamOperator.keyBy(MockEvent::getServiceId)
+        SingleOutputStreamOperator<Event> aggregateOperator = streamOperator.keyBy(Event::getServiceId)
                 // .flatMap()
                 .window(TumblingEventTimeWindows.of(Time.seconds(5)))
                 .sum(1);

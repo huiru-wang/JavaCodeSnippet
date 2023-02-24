@@ -2,8 +2,8 @@ package com.snippet.flinkexample.stream;
 
 import com.alibaba.fastjson2.JSON;
 import com.snippet.flinkexample.constant.Constants;
-import com.snippet.flinkexample.model.MockEvent;
-import com.snippet.flinkexample.source.MockEventSource;
+import com.snippet.flinkexample.model.Event;
+import com.snippet.flinkexample.source.EventSource;
 import org.apache.flink.api.common.functions.FlatMapFunction;
 import org.apache.flink.api.common.serialization.SimpleStringSchema;
 import org.apache.flink.connector.base.DeliveryGuarantee;
@@ -23,7 +23,7 @@ public class KafkaSinkExample {
 
         final StreamExecutionEnvironment env = StreamExecutionEnvironment.getExecutionEnvironment();
 
-        DataStreamSource<MockEvent> mockEventDataStreamSource = env.addSource(new MockEventSource());
+        DataStreamSource<Event> mockEventDataStreamSource = env.addSource(new EventSource());
 
         KafkaSink<String> kafkaSink = KafkaSink.<String>builder()
                 .setBootstrapServers(Constants.KAFKA_SERVERS)
@@ -37,9 +37,9 @@ public class KafkaSinkExample {
                 .build();
 
         SingleOutputStreamOperator<String> stringSingleOutputStreamOperator = mockEventDataStreamSource
-                .flatMap(new FlatMapFunction<MockEvent, String>() {
+                .flatMap(new FlatMapFunction<Event, String>() {
                     @Override
-                    public void flatMap(MockEvent value, Collector<String> out) throws Exception {
+                    public void flatMap(Event value, Collector<String> out) throws Exception {
                         out.collect(JSON.toJSONString(value));
                     }
                 });

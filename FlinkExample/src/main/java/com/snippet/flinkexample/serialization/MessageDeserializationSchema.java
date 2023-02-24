@@ -1,8 +1,8 @@
 package com.snippet.flinkexample.serialization;
 
 import com.alibaba.fastjson2.JSON;
+import com.snippet.flinkexample.model.Event;
 import com.snippet.flinkexample.model.KafkaMessageModel;
-import com.snippet.flinkexample.model.MockEvent;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.connector.kafka.source.reader.deserializer.KafkaRecordDeserializationSchema;
@@ -34,9 +34,9 @@ public class MessageDeserializationSchema implements KafkaRecordDeserializationS
                 messageModel.setKey(key);
             }
             value = new String(record.value(), StandardCharsets.UTF_8);
-            MockEvent mockEvent = JSON.parseObject(value, MockEvent.class);
-            messageModel.setValue(mockEvent);
-            messageModel.setValue(JSON.parseObject(record.value(), MockEvent.class));
+            Event event = JSON.parseObject(value, Event.class);
+            messageModel.setValue(event);
+            messageModel.setValue(JSON.parseObject(record.value(), Event.class));
             messageModel.setOffset(record.offset());
             out.collect(messageModel);
         } catch (Exception e) {
