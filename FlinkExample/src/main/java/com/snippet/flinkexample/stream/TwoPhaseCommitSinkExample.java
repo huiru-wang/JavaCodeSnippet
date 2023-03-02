@@ -1,0 +1,4 @@
+
+
+public TwoPhaseCommitSinkExample extends TwoPhaseCommitSinkFunction<>{
+}
