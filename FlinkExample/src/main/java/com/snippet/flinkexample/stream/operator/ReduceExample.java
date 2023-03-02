@@ -9,6 +9,8 @@ import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
 import org.apache.flink.util.Collector;
 
+import java.time.LocalDateTime;
+
 /**
  * reduce：归约算子，流中两两元素不断迭代成新的元素，类型保持相同
  * create by whr on 2023/2/24
@@ -21,11 +23,14 @@ public class ReduceExample {
         env.setParallelism(2);
 
         DataStreamSource<Event> dataStreamSource = env.fromElements(
-                new Event("TradeService"),
-                new Event("ProductService"),
-                new Event("TradeService"),
-                new Event("TradeService"),
-                new Event("OrderService")
+                new Event("TradeService", LocalDateTime.now().minusSeconds(9)),
+                new Event("ProductService", LocalDateTime.now().minusSeconds(16)),
+                new Event("TradeService", LocalDateTime.now().minusSeconds(1)),
+                new Event("TradeService", LocalDateTime.now().minusSeconds(5)),
+                new Event("OrderService", LocalDateTime.now().minusSeconds(1)),
+                new Event("ProductService", LocalDateTime.now().minusSeconds(31)),
+                new Event("OrderService", LocalDateTime.now().minusSeconds(20)),
+                new Event("TradeService", LocalDateTime.now().minusSeconds(10))
         );
 
         SingleOutputStreamOperator<Tuple2<Event, Long>> reduceResult = dataStreamSource

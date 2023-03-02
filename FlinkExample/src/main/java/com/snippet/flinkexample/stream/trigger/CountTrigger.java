@@ -1,3 +1,13 @@
+package com.snippet.flinkexample.stream.trigger;
+
+import org.apache.flink.api.common.functions.ReduceFunction;
+import org.apache.flink.api.common.state.ReducingState;
+import org.apache.flink.api.common.state.ReducingStateDescriptor;
+import org.apache.flink.api.common.typeutils.base.LongSerializer;
+import org.apache.flink.streaming.api.windowing.triggers.Trigger;
+import org.apache.flink.streaming.api.windowing.triggers.TriggerResult;
+import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
+
 public class CountTrigger extends Trigger<Object, TimeWindow> {
 
     private static final long serialVersionUID = 1L;
@@ -5,7 +15,7 @@ public class CountTrigger extends Trigger<Object, TimeWindow> {
     private final long maxCount;
 
     private final ReducingStateDescriptor<Long> stateDesc =
-        new ReducingStateDescriptor<>("pubAlertCount", new PubAlertCount(), LongSerializer.INSTANCE);
+            new ReducingStateDescriptor<>("pubAlertCount", new PubAlertCount(), LongSerializer.INSTANCE);
 
     public CountTrigger(long maxCount) {
         this.maxCount = maxCount;
@@ -13,7 +23,7 @@ public class CountTrigger extends Trigger<Object, TimeWindow> {
 
     @Override
     public TriggerResult onElement(Object element, long timestamp, TimeWindow window, TriggerContext ctx)
-        throws Exception {
+            throws Exception {
         ctx.registerProcessingTimeTimer(window.maxTimestamp());
 
         ReducingState<Long> count = ctx.getPartitionedState(stateDesc);

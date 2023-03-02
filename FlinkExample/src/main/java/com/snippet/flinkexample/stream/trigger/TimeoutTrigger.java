@@ -1,3 +1,15 @@
+package com.snippet.flinkexample.stream.trigger;
+
+import org.apache.flink.streaming.api.windowing.triggers.Trigger;
+import org.apache.flink.streaming.api.windowing.triggers.TriggerResult;
+import org.apache.flink.streaming.api.windowing.windows.TimeWindow;
+
+import java.time.Duration;
+
+/**
+ * 无数据时，超时关闭窗口
+ * create by whr on 2023/2/24
+ */
 public class TimeoutTrigger extends Trigger<Object, TimeWindow> {
 
     // 超时关窗时间

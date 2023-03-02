@@ -1,11 +1,26 @@
 package com.snippet.flinkexample.stream.window;
 
-import com.snippet.flinkexample.udf.LocalDateTimeParserFunction;
+import com.snippet.flinkexample.model.Event;
+import com.snippet.flinkexample.stream.trigger.TimeoutTrigger;
+import org.apache.flink.api.common.eventtime.SerializableTimestampAssigner;
+import org.apache.flink.api.common.eventtime.WatermarkStrategy;
+import org.apache.flink.api.common.functions.FlatMapFunction;
+import org.apache.flink.api.java.tuple.Tuple2;
+import org.apache.flink.streaming.api.datastream.DataStreamSource;
+import org.apache.flink.streaming.api.datastream.SingleOutputStreamOperator;
 import org.apache.flink.streaming.api.environment.StreamExecutionEnvironment;
-import org.apache.flink.table.api.Table;
-import org.apache.flink.table.api.bridge.java.StreamTableEnvironment;
+import org.apache.flink.streaming.api.windowing.assigners.TumblingEventTimeWindows;
+import org.apache.flink.streaming.api.windowing.time.Time;
+import org.apache.flink.util.Collector;
+
+import java.time.Duration;
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 
 /**
+ * 每10s内的服务Id 个数统计
+ * 自定义超时Trigger，时间窗内有数据，但无法触发关窗时，超时触发
+ * <p>
  * create by whr on 2023/2/23
  */
 public class TumbleWindowExample {
@@ -13,77 +28,42 @@ public class TumbleWindowExample {
     public static void main(String[] args) throws Exception {
         // 获取流环境
         StreamExecutionEnvironment executionEnvironment = StreamExecutionEnvironment.getExecutionEnvironment();
-
-        StreamTableEnvironment tableEnv = StreamTableEnvironment.create(executionEnvironment);
-
-        tableEnv.createTemporaryFunction("ParseLocalDate", new LocalDateTimeParserFunction());
-
-        String kafkaSource = "CREATE TABLE fault_event (\n" +
-                "  id BIGINT,\n" +
-                "  site STRING,\n" +
-                "  tenantId STRING,\n" +
-                "  applicationId STRING,\n" +
-                "  provider STRING,\n" +
-                "  serviceId STRING,\n" +
-                "  subType STRING,\n" +
-                "  status STRING,\n" +
-                "  objName STRING,\n" +
-                "  msg STRING,\n" +
-                "  isSuppressed BOOLEAN,\n" +
-                "  isDeleted BOOLEAN,\n" +
-                "  hostIp STRING,\n" +
-                "  occurTime STRING,\n" +
-                "  detectTime STRING,\n" +
-                "  lastModifiedTime STRING,\n" +
-                "  ts AS TO_TIMESTAMP( ParseLocalDate(occurTime) ),\n" +
-                "  WATERMARK FOR ts AS ts - INTERVAL '60' SECOND " +
-                ") WITH (\n" +
-                " 'connector' = 'kafka',\n" +
-                " 'topic' = 'snippet1',\n" +
-                " 'properties.bootstrap.servers' = 'localhost:9092',\n" +
-                " 'properties.group.id' = 'flink_table',\n" +
-                " 'scan.startup.mode' = 'earliest-offset',\n" +
-                " 'value.format' = 'json'\n" +
-                ")";
-        // kafka source
-        tableEnv.executeSql(kafkaSource);
-
-        Table selectTable = tableEnv.sqlQuery("SELECT \n" +
-                " ts,id,site,tenantId,applicationId,serviceId,provider,subType,status,msg, \n" +
-                " isSuppressed,isDeleted,occurTime,detectTime,lastModifiedTime,hostIp \n" +
-                " FROM fault_event");
-        selectTable.printSchema();
-        selectTable.execute().print();
-
-
-        Table tempTable = tableEnv.sqlQuery("SELECT  window_start,\n" +
-                " site,tenantId,applicationId,serviceId,subType,COUNT(hostIp) AS hostIpNum,COUNT(id) AS alertNum \n" +
-                " FROM TABLE(TUMBLE(TABLE fault_event, DESCRIPTOR(ts), INTERVAL '1' SECOND)) " +
-                " GROUP BY window_start,window_end,site, tenantId, applicationId, serviceId,subType"
+        DataStreamSource<Event> eventDataStreamSource = executionEnvironment.fromElements(
+                new Event("TradeService", LocalDateTime.now().minusSeconds(9)),
+                new Event("ProductService", LocalDateTime.now().minusSeconds(16)),
+                new Event("TradeService", LocalDateTime.now().minusSeconds(1)),
+                new Event("TradeService", LocalDateTime.now().minusSeconds(5)),
+                new Event("OrderService", LocalDateTime.now().minusSeconds(1)),
+                new Event("ProductService", LocalDateTime.now().minusSeconds(31)),
+                new Event("TradeService", LocalDateTime.now().minusSeconds(27)),
+                new Event("OrderService", LocalDateTime.now().minusSeconds(20)),
+                new Event("TradeService", LocalDateTime.now().minusSeconds(10))
         );
+        WatermarkStrategy<Event> timestampAssigner = WatermarkStrategy.<Event>forBoundedOutOfOrderness(Duration.ofSeconds(10))
+                .withTimestampAssigner(new SerializableTimestampAssigner<Event>() {
+                    @Override
+                    public long extractTimestamp(Event element, long recordTimestamp) {
+                        LocalDateTime startTime = element.getStartTime();
+                        return startTime.toInstant(ZoneOffset.UTC).toEpochMilli();
+                    }
+                });
 
-        tempTable.printSchema();
-        tableEnv.toDataStream(tempTable).print();
-        tempTable.execute().print();
-        tableEnv.createTemporaryView("TempTable", tempTable);
+        SingleOutputStreamOperator<Tuple2<String, Long>> sum = eventDataStreamSource.assignTimestampsAndWatermarks(timestampAssigner)
+                .flatMap(new FlatMapFunction<Event, Tuple2<String, Long>>() {
+                    @Override
+                    public void flatMap(Event value, Collector<Tuple2<String, Long>> out) throws Exception {
+                        out.collect(Tuple2.of(value.getServiceId(), 1L));
+                    }
+                })
+                .keyBy(tuple -> tuple.f0)
+                .window(TumblingEventTimeWindows.of(Time.seconds(10)))
+                .trigger(new TimeoutTrigger(Duration.ofMinutes(1))) // 无数据时，超时关闭窗口
+                .sum(1);
 
-        String mysqlSink = "CREATE TABLE public_alert_agg (\n" +
-                "  startTime TIMESTAMP(3),\n" +
-                "  serviceNum BIGINT,\n" +
-                "  alertNum BIGINT,\n" +
-                "  hostIpNum BIGINT\n" +
-                ") WITH (\n" +
-                " 'connector' = 'jdbc',\n" +
-                " 'driver' = 'com.mysql.cj.jdbc.Driver',\n" +
-                " 'url' = 'jdbc:mysql://localhost:3306/snippet',\n" +
-                " 'table-name' = 't_public_alert_agg', \n" +
-                " 'username' = 'root', \n" +
-                " 'password' = 'root',\n" +
-                " 'sink.buffer-flush.max-rows' = '100', \n" +
-                " 'sink.buffer-flush.interval' = '10000'\n" +
-                ")";
 
-        tableEnv.executeSql(mysqlSink);
+        sum.print("sum :\n");
+        // 每10s内的服务Id 个数统计
+
 
         executionEnvironment.execute();
     }

@@ -34,8 +34,9 @@ public class Event {
         this.startTime = startTime;
     }
 
-    public Event(String serviceId) {
+    public Event(String serviceId, LocalDateTime startTime) {
         this.serviceId = serviceId;
+        this.startTime = startTime;
     }
 
 }
