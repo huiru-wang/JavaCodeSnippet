@@ -1,4 +1,4 @@
-package com.snippet.flinkexample.stream;
+package com.snippet.flinkexample.stream.source;
 
 import com.snippet.flinkexample.constant.Constants;
 import com.snippet.flinkexample.model.KafkaMessageModel;

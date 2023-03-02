@@ -1,4 +1,4 @@
-package com.snippet.flinkexample.stream;
+package com.snippet.flinkexample.stream.sink;
 
 import com.snippet.flinkexample.model.Event;
 import com.snippet.flinkexample.source.EventSource;

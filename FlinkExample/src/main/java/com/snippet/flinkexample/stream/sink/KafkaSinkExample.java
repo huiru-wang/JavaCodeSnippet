@@ -1,4 +1,4 @@
-package com.snippet.flinkexample.stream;
+package com.snippet.flinkexample.stream.sink;
 
 import com.alibaba.fastjson2.JSON;
 import com.snippet.flinkexample.constant.Constants;
