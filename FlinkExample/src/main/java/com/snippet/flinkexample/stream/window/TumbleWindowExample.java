@@ -39,6 +39,7 @@ public class TumbleWindowExample {
                 new Event("OrderService", LocalDateTime.now().minusSeconds(20)),
                 new Event("TradeService", LocalDateTime.now().minusSeconds(10))
         );
+
         WatermarkStrategy<Event> timestampAssigner = WatermarkStrategy.<Event>forBoundedOutOfOrderness(Duration.ofSeconds(10))
                 .withTimestampAssigner(new SerializableTimestampAssigner<Event>() {
                     @Override
