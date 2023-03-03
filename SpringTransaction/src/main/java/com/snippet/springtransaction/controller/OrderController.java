@@ -40,4 +40,9 @@ public class OrderController {
         return "success";
     }
 
+    @GetMapping("/fail1")
+    public String transactionTest5() {
+        orderService.failCondition1();
+        return "success";
+    }
 }

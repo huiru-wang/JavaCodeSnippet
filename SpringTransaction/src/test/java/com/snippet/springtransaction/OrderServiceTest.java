@@ -28,4 +28,19 @@ public class OrderServiceTest {
     public void template_test() {
         orderService.templateTest();
     }
+
+    @Test
+    public void fail_condition_1() {
+        orderService.failCondition1();
+    }
+
+    @Test
+    public void fail_condition_2() {
+        orderService.failCondition2();
+    }
+
+    @Test
+    public void propagation_new_test() {
+        orderService.parentTransaction();
+    }
 }
