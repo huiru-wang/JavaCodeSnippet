@@ -17,6 +17,10 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @EnableTransactionManagement
 public class TransactionConfiguration {
 
+    /**
+     * 默认beanName为transactionManager
+     * 如果其他名称，需要指定：@Transactional(transactionManager = "xxxxTransactionManager", rollbackFor = Exception.class)
+     */
     @Bean
     @Qualifier("transactionManager")
     public DataSourceTransactionManager txManager(@Autowired HikariDataSource hikariDataSource) {
