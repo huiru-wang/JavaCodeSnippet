@@ -14,6 +14,7 @@ import java.util.Objects;
 @Configuration
 public class KafkaListenerErrorHandler {
 
+    @Bean
     public ConsumerAwareErrorHandler consumerAwareErrorHandler() {
         return (exception, consumerRecord, consumer) -> {
             if (Objects.nonNull(consumerRecord)) {
