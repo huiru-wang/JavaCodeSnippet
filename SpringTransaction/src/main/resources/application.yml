@@ -1,0 +1,19 @@
+server:
+  port: 9090
+
+spring:
+  # =============DataSource=============
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: will
+    password: will
+    url: jdbc:mysql://ubuntu.wsl:3306/snippet?useUnicode=true&characterEncoding=utf-8&userSSL=false
+    hikari:
+      minimum-idle: 10
+      maximum-pool-size: 20
+      pool-name: wsl-datasource
+      connection-timeout: 10000
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # sql????

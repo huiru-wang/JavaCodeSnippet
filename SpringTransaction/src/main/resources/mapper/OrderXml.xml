@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.snippet.springtransaction.dao.mapper.OrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.snippet.springtransaction.dao.entity.Order">
+        <id column="id" property="id" />
+        <result column="userId" property="userId" />
+        <result column="amount" property="amount" />
+        <result column="type" property="type" />
+        <result column="channel" property="channel" />
+        <result column="status" property="status" />
+        <result column="remarks" property="remarks" />
+        <result column="extInfo" property="extInfo" />
+        <result column="createTime" property="createTime" />
+        <result column="updateTime" property="updateTime" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        id, userId, amount, type, channel, status, remarks, extInfo, createTime, updateTime
+    </sql>
+
+</mapper>
