@@ -1,7 +1,0 @@
-package com.snippet.base.concurrency.nio.reactor.masterslave;
-
-/**
- * https://www.cnblogs.com/wscp/p/16299129.html
- */
-public class ReactorServer {
-}
