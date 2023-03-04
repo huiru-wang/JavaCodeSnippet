@@ -8,9 +8,7 @@ package com.snippet.designpattern.strategy.combination;
 public class ChannelPayment {
 
 
-    public void doPayment(String channel){
-        System.out.println("Do Payment");
-        PaymentStrategy paymentStrategy = PaymentChannelFactory.getPaymentStrategy(channel);
-        paymentStrategy.payment();
+    public void doPayment(String channel) {
+
     }
 }
