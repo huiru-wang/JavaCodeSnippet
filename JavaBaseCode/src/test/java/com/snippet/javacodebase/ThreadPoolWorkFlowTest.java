@@ -1,8 +1,9 @@
-package com.snippet.javacodebase.threadpoolflow;
+package com.snippet.javacodebase;
 
 import org.junit.jupiter.api.Test;
 
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
@@ -23,7 +24,7 @@ import java.util.concurrent.TimeUnit;
  * <p>
  * create by whr on 2023/2/15
  */
-public class ThreadPoolExecutionTest {
+public class ThreadPoolWorkFlowTest {
     // 2+3 总共5个线程，总计可以同时持有任务3+5=8个
     private static final ThreadPoolExecutor threadPoll = new ThreadPoolExecutor(
             2,
@@ -49,5 +50,40 @@ public class ThreadPoolExecutionTest {
 
         threadPoll.shutdown();
         threadPoll.awaitTermination(5, TimeUnit.MINUTES); // 阻塞等待线程池关闭,返回是否关闭成功
+    }
+
+    /**
+     * 线程
+     */
+    static class Task implements Runnable {
+        private final String name;
+
+        public Task(String name) {
+            this.name = name;
+        }
+
+        @Override
+        public void run() {
+            try {
+                Thread.sleep(2000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+
+        @Override
+        public String toString() {
+            return this.name;
+        }
+    }
+
+    /**
+     * 线程 拒绝策略
+     */
+    static class MyRejectedHandler implements RejectedExecutionHandler {
+        @Override
+        public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
+            System.out.println("Rejected：" + r.toString());
+        }
     }
 }
