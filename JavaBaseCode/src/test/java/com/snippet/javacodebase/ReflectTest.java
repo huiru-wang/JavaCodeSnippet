@@ -6,7 +6,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 /**
- * 对比反射性能
+ * 对比反射性能, 不是频繁调用反射，可以忽略性能影响
  * 1、获取class方法
  * 2、代码检查带来的耗时
  * 3、获取class、method、field对象带来的耗时
